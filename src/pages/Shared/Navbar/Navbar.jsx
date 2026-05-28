@@ -31,7 +31,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-white/60 backdrop-blur-sm shadow-sm sticky top-0 z-40">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -61,19 +61,19 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
       </div>
-      <div className="navbar-end">
+      <div className="navbar-end flex items-center gap-3">
         <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-          <div className="w-10 rounded-full">
+          <div className="w-10 rounded-full ring-2 ring-indigo-300 overflow-hidden">
             <img src={userDefaultPic} />
           </div>
         </label>
         {user ? (
-          <button onClick={handleSignOut} className="btn">
+          <button onClick={handleSignOut} className="btn btn-sm bg-indigo-600 text-white hover:bg-indigo-700">
             Sign Out
           </button>
         ) : (
           <Link to="/login">
-            <button className="btn">Login</button>
+            <button className="btn btn-sm bg-indigo-600 text-white hover:bg-indigo-700">Login</button>
           </Link>
         )}
       </div>
