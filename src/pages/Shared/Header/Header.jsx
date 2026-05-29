@@ -15,13 +15,13 @@ const Header = () => {
           <div className="mt-6 flex items-center justify-center gap-4">
             <a
               href="/courses"
-              className="inline-block bg-white text-indigo-700 font-semibold px-5 py-2 rounded-lg shadow-sm hover:shadow-md"
+              className="inline-block bg-white text-indigo-700 font-semibold px-6 py-3 rounded-xl shadow-lg transform hover:-translate-y-1 transition-all duration-200"
             >
               Browse Courses
             </a>
             <a
               href="/register"
-              className="inline-block border border-white text-white px-5 py-2 rounded-lg opacity-90 hover:opacity-100"
+              className="inline-block bg-transparent border border-white/80 text-white px-6 py-3 rounded-xl hover:bg-white/10 transition-colors duration-200"
             >
               Teach a Course
             </a>
@@ -30,7 +30,7 @@ const Header = () => {
       </div>
       <div className="container-max flex items-center justify-between mt-6 px-4">
         <div className="flex items-center gap-3">
-          <img className="w-12 h-12" src={logo} alt="Esho Shikhi logo" />
+          <img className="w-12 h-12 rounded-full ring-2 ring-white shadow-md object-cover" src={logo} alt="Esho Shikhi logo" />
           <div>
             <div className="text-sm font-semibold">Esho Shikhi</div>
             <div className="text-xs text-gray-400">
