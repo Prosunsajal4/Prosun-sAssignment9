@@ -4,38 +4,31 @@ import moment from "moment";
 const Header = () => {
   return (
     <header className="relative overflow-hidden mb-8" role="banner">
-      <div className="hero-heroGradient py-16 px-4 md:py-24">
-        <div className="max-w-6xl mx-auto text-center text-white">
-          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">
+      <div className="hero-heroGradient">
+        <div className="max-w-6xl mx-auto text-center text-white py-12 md:py-20 px-4">
+          <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight leading-tight">
             Skill is Power
           </h1>
-          <p className="mt-4 text-lg md:text-xl opacity-90">
-            Empower yourself through hands-on learning and real-world growth.
+          <p className="mt-4 text-base md:text-lg opacity-90 max-w-2xl mx-auto">
+            Empower yourself through hands-on learning and real-world growth. Find curated providers and practical lessons to level up fast.
           </p>
-          <div className="mt-6" aria-hidden="true">
-            <span className="inline-block w-2 h-2 bg-white rounded-full mx-1 opacity-60"></span>
-            <span className="inline-block w-2 h-2 bg-white rounded-full mx-1 opacity-30"></span>
-            <span className="inline-block w-2 h-2 bg-white rounded-full mx-1 opacity-30"></span>
+          <div className="mt-6 flex items-center justify-center gap-4">
+            <a href="/courses" className="inline-block bg-white text-indigo-700 font-semibold px-5 py-2 rounded-lg shadow-sm hover:shadow-md">Explore Courses</a>
+            <a href="/register" className="inline-block border border-white text-white px-5 py-2 rounded-lg opacity-90 hover:opacity-100">Become an Instructor</a>
           </div>
         </div>
       </div>
-      <div className="max-w-6xl mx-auto flex items-center justify-between mt-4 px-4">
+      <div className="max-w-6xl mx-auto flex items-center justify-between mt-6 px-4">
         <div className="flex items-center gap-3">
-          <img className="w-10 h-10" src={logo} alt="Esho Shikhi logo" />
+          <img className="w-12 h-12" src={logo} alt="Esho Shikhi logo" />
           <div>
             <div className="text-sm font-semibold">Esho Shikhi</div>
-            <div className="text-xs text-gray-500">
-              Learn Something New Every Day
-            </div>
+            <div className="text-xs text-gray-400">Learn Something New Every Day</div>
           </div>
         </div>
-        <div className="flex items-center gap-4">
-          <a className="text-sm text-gray-600" href="/">
-            Home
-          </a>
-          <a className="text-sm text-gray-600" href="/profile">
-            My Profile
-          </a>
+        <div className="hidden sm:flex items-center gap-4">
+          <a className="text-sm text-gray-600 hover:text-indigo-600" href="/">Home</a>
+          <a className="text-sm text-gray-600 hover:text-indigo-600" href="/profile">My Profile</a>
         </div>
       </div>
     </header>

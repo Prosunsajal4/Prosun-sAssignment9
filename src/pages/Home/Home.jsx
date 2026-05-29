@@ -20,53 +20,49 @@ const Home = () => {
         {/* main content */}
         <section className="mt-12">
           <h2 className="text-xl font-semibold mb-6">Top Rated Providers</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-            <div className="instructor-card p-4 text-center">
-              <img
-                className="mx-auto w-24 h-24 rounded-md object-cover"
-                src="https://images.pexels.com/photos/164821/pexels-photo-164821.jpeg"
-                alt="Alex Martin"
-              />
-              <h3 className="mt-3 font-semibold">Alex Martin</h3>
-              <p className="text-sm text-gray-500">Beginner Guitar Lessons</p>
-              <div className="mt-2 text-sm text-yellow-500">4.8 ★</div>
-              <div className="text-xs text-gray-400">Slots Available: 3</div>
-            </div>
-            <div className="instructor-card p-4 text-center">
-              <img
-                className="mx-auto w-24 h-24 rounded-md object-cover"
-                src="https://images.pexels.com/photos/3184323/pexels-photo-3184323.jpeg"
-                alt="John Ray"
-              />
-              <h3 className="mt-3 font-semibold">John Ray</h3>
-              <p className="text-sm text-gray-500">
-                Basic Photography Workshop
-              </p>
-              <div className="mt-2 text-sm text-yellow-500">4.7 ★</div>
-              <div className="text-xs text-gray-400">Slots Available: 4</div>
-            </div>
-            <div className="instructor-card p-4 text-center">
-              <img
-                className="mx-auto w-24 h-24 rounded-md object-cover"
-                src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg"
-                alt="Omar Hossain"
-              />
-              <h3 className="mt-3 font-semibold">Omar Hossain</h3>
-              <p className="text-sm text-gray-500">Creative Writing Workshop</p>
-              <div className="mt-2 text-sm text-yellow-500">4.9 ★</div>
-              <div className="text-xs text-gray-400">Slots Available: 4</div>
-            </div>
-            <div className="instructor-card p-4 text-center">
-              <img
-                className="mx-auto w-24 h-24 rounded-md object-cover"
-                src="https://images.pexels.com/photos/3184418/pexels-photo-3184418.jpeg"
-                alt="Sara Hossain"
-              />
-              <h3 className="mt-3 font-semibold">Sara Hossain</h3>
-              <p className="text-sm text-gray-500">Spoken English Practice</p>
-              <div className="mt-2 text-sm text-yellow-500">4.6 ★</div>
-              <div className="text-xs text-gray-400">Slots Available: 5</div>
-            </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                name: "Alex Martin",
+                role: "Beginner Guitar Lessons",
+                avatar:
+                  "https://images.pexels.com/photos/164821/pexels-photo-164821.jpeg",
+                rating: 4.8,
+                slots: 3,
+              },
+              {
+                name: "John Ray",
+                role: "Basic Photography Workshop",
+                avatar:
+                  "https://images.pexels.com/photos/3184323/pexels-photo-3184323.jpeg",
+                rating: 4.7,
+                slots: 4,
+              },
+              {
+                name: "Omar Hossain",
+                role: "Creative Writing Workshop",
+                avatar:
+                  "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg",
+                rating: 4.9,
+                slots: 4,
+              },
+            ].map((ins, idx) => (
+              <div key={idx} className="instructor-card p-6 text-center">
+                <img
+                  className="mx-auto w-28 h-28 rounded-full object-cover ring-2 ring-indigo-100"
+                  src={ins.avatar}
+                  alt={ins.name}
+                />
+                <h3 className="mt-4 font-semibold text-lg">{ins.name}</h3>
+                <p className="text-sm text-gray-500">{ins.role}</p>
+                <div className="mt-3 flex items-center justify-center gap-3">
+                  <div className="text-sm text-yellow-500 font-semibold">
+                    {ins.rating} ★
+                  </div>
+                  <div className="text-xs text-gray-400">{ins.slots} slots</div>
+                </div>
+              </div>
+            ))}
           </div>
         </section>
 
