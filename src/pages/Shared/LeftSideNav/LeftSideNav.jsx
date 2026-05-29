@@ -11,16 +11,18 @@ const LeftSideNav = () => {
     }, [])
 
     return (
-        <div className="space-y-6">
-            <h2 className="text-2xl">All Categories</h2>
-            {
-                categories.map(category => <Link 
-                    className="block ml-4 text-xl font-semibold" 
-                    key={category.id}
-                    to={`/category/${category.id}`}
-                    >{category.name}</Link>)
-            }
-        </div>
+        <aside className="space-y-6 bg-white rounded-lg p-4 shadow-sm">
+            <h2 className="text-lg font-semibold">Categories</h2>
+            <ul className="mt-2 space-y-2">
+                {
+                    categories.map(category => (
+                        <li key={category.id}>
+                            <Link className="block text-sm text-gray-700 hover:text-indigo-600" to={`/category/${category.id}`}>{category.name}</Link>
+                        </li>
+                    ))
+                }
+            </ul>
+        </aside>
     );
 };
 
