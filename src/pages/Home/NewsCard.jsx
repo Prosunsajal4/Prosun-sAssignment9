@@ -4,29 +4,17 @@ import { Link } from "react-router-dom";
 const NewsCard = ({ news }) => {
     const { title, image_url, details, _id } = news;
     return (
-        <article className="mb-8 bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-200">
-            <div className="md:flex">
-                <div className="md:w-1/3">
-                    <img className="w-full h-48 object-cover md:h-full" src={image_url} alt={title} />
+        <div className="bg-white rounded-lg border border-green-100 overflow-hidden shadow-sm hover:shadow-md transition">
+            <img className="w-full h-44 object-cover rounded-t-lg" src={image_url} alt={title} />
+            <div className="p-4">
+                <h3 className="font-semibold text-lg mb-2">{title}</h3>
+                <div className="flex items-center justify-between text-sm text-gray-600 mb-3">
+                    <div>price: <span className="text-black font-medium">{news.price || '—'}</span></div>
+                    <div>rating: <span className="text-black font-medium">{news.rating?.number || '—'} <span className="text-yellow-500">★</span></span></div>
                 </div>
-                <div className="p-6 md:w-2/3">
-                    <h2 className="text-xl md:text-2xl font-semibold mb-2">{title}</h2>
-                    <div className="text-sm text-gray-600 mb-4">
-                        {
-                            details.length > 220
-                                ? <p>{details.slice(0, 220)}... <Link
-                                    to={`/news/${_id}`}
-                                    className="text-indigo-600 font-semibold">Read More</Link></p>
-                                : <p>{details}</p>
-                        }
-                    </div>
-                    <div className="flex items-center justify-between">
-                        <div className="text-xs text-gray-400">By Dragon News</div>
-                        <Link to={`/news/${_id}`} className="text-sm text-indigo-600 font-medium">Open →</Link>
-                    </div>
-                </div>
+                <Link to={`/news/${_id}`} className="text-sm text-indigo-600 font-medium">View Details</Link>
             </div>
-        </article>
+        </div>
     );
 };
 
