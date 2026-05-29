@@ -3,7 +3,7 @@ import moment from "moment";
 
 const Header = () => {
   return (
-    <header className="relative overflow-hidden mb-8">
+    <header className="relative overflow-hidden mb-8" role="banner">
       <div className="hero-heroGradient py-16 px-4 md:py-24">
         <div className="max-w-6xl mx-auto text-center text-white">
           <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight">
@@ -12,7 +12,7 @@ const Header = () => {
           <p className="mt-4 text-lg md:text-xl opacity-90">
             Empower yourself through hands-on learning and real-world growth.
           </p>
-          <div className="mt-6">
+          <div className="mt-6" aria-hidden="true">
             <span className="inline-block w-2 h-2 bg-white rounded-full mx-1 opacity-60"></span>
             <span className="inline-block w-2 h-2 bg-white rounded-full mx-1 opacity-30"></span>
             <span className="inline-block w-2 h-2 bg-white rounded-full mx-1 opacity-30"></span>
@@ -21,7 +21,7 @@ const Header = () => {
       </div>
       <div className="max-w-6xl mx-auto flex items-center justify-between mt-4 px-4">
         <div className="flex items-center gap-3">
-          <img className="w-10 h-10" src={logo} alt="logo" />
+          <img className="w-10 h-10" src={logo} alt="Esho Shikhi logo" />
           <div>
             <div className="text-sm font-semibold">Esho Shikhi</div>
             <div className="text-xs text-gray-500">

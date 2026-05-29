@@ -12,7 +12,8 @@ const Home = () => {
     <div>
       <Header></Header>
       <Navbar></Navbar>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <main id="main-content" role="main">
+       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <aside className="lg:col-span-1">
           <LeftSideNav />
         </aside>
@@ -180,6 +181,7 @@ const Home = () => {
           <RightSideNav />
         </aside>
       </div>
+      </main>
     </div>
   );
 };

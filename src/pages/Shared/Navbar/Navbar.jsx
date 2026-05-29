@@ -31,10 +31,10 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar bg-white/60 backdrop-blur-sm shadow-sm sticky top-0 z-40">
+    <nav className="navbar bg-white/60 backdrop-blur-sm shadow-sm sticky top-0 z-40" role="navigation" aria-label="Main Navigation">
       <div className="navbar-start">
         <div className="dropdown">
-          <label tabIndex={0} className="btn btn-ghost lg:hidden">
+          <label tabIndex={0} className="btn btn-ghost lg:hidden" aria-label="Open navigation menu">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-5 w-5"
@@ -53,18 +53,19 @@ const Navbar = () => {
           <ul
             tabIndex={0}
             className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            aria-label="Mobile navigation"
           >
             {navLinks}
           </ul>
         </div>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">{navLinks}</ul>
+        <ul className="menu menu-horizontal px-1" aria-label="Primary navigation">{navLinks}</ul>
       </div>
       <div className="navbar-end flex items-center gap-3">
-        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+        <label tabIndex={0} className="btn btn-ghost btn-circle avatar" aria-label="User menu">
           <div className="w-10 rounded-full ring-2 ring-indigo-300 overflow-hidden">
-            <img src={userDefaultPic} />
+            <img src={userDefaultPic} alt="User avatar" />
           </div>
         </label>
         {user ? (

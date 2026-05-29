@@ -39,3 +39,24 @@ body {
   border-radius: 10px;
   box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
 }
+
+/* Accessible skip link */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  width: auto;
+  height: auto;
+  background: #111827;
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  z-index: 9999;
+  border-radius: 6px;
+}
