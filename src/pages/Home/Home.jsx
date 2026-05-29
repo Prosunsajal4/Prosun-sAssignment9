@@ -17,7 +17,7 @@ const Home = () => {
           }
         });
       },
-      { threshold: 0.12 }
+      { threshold: 0.12 },
     );
     els.forEach((el) => io.observe(el));
     return () => io.disconnect();
@@ -38,10 +38,10 @@ const Home = () => {
               <div className="mb-6 flex items-end justify-between gap-4">
                 <div>
                   <p className="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-600">
-                    Featured Providers
+                    Featured
                   </p>
                   <h2 className="mt-2 text-2xl font-bold text-slate-900">
-                    Top Rated Providers
+                    Top Courses This Week
                   </h2>
                 </div>
                 <span className="hidden rounded-full bg-indigo-50 px-3 py-1 text-sm font-medium text-indigo-700 sm:inline-flex">
@@ -89,9 +89,9 @@ const Home = () => {
                     </div>
                     <div className="p-5">
                       <h3 className="text-lg font-semibold text-slate-900">
-                        {ins.name}
-                      </h3>
-                      <p className="mt-1 text-sm text-slate-500">{ins.role}</p>
+                          {ins.name}
+                        </h3>
+                        <p className="mt-1 text-sm text-slate-500">{ins.role}</p>
                       <div className="mt-4 flex items-center justify-between rounded-2xl bg-slate-50 px-4 py-3 text-sm">
                         <span className="font-semibold text-amber-500">
                           {ins.rating} ★
