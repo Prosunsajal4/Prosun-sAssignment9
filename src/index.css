@@ -76,3 +76,43 @@ body {
   z-index: 9999;
   border-radius: 6px;
 }
+
+/* Carousel / Spotlight styles for RightSideNav */
+.carousel {
+  --btn-size: 36px;
+}
+.carousel-track {
+  position: relative;
+}
+.slide {
+  display: none;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 300ms ease, transform 300ms ease;
+}
+.slide.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: var(--btn-size);
+  height: var(--btn-size);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255,255,255,0.9);
+  border-radius: 9999px;
+  box-shadow: 0 6px 18px rgba(2,6,23,0.08);
+  border: 1px solid rgba(15,23,42,0.04);
+}
+.carousel-btn.left { left: 8px }
+.carousel-btn.right { right: 8px }
+.carousel-btn svg { width: 14px; height: 14px }
+
+@media (prefers-reduced-motion: reduce) {
+  .slide { transition: none }
+}

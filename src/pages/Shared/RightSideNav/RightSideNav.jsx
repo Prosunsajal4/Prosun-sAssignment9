@@ -4,12 +4,42 @@ import {
   FaGoogle,
   FaInstagram,
   FaTwitter,
+  FaChevronLeft,
+  FaChevronRight,
 } from "react-icons/fa";
-import qZone1 from "../../../assets/qZone1.png";
-import qZone2 from "../../../assets/qZone2.png";
-import qZone3 from "../../../assets/qZone3.png";
+import { useEffect, useState } from "react";
 
 const RightSideNav = () => {
+  const slides = [
+    {
+      title: "Popular Skill: UI Design",
+      body: "Quick hands-on sessions to build modern interfaces.",
+      cta: "Explore",
+      meta: "12 courses",
+    },
+    {
+      title: "Live Workshops",
+      body: "Join small-group live lessons with top instructors.",
+      cta: "Join Now",
+      meta: "Next: Tomorrow",
+    },
+    {
+      title: "Certificate Tracks",
+      body: "Complete projects and get a sharable certification.",
+      cta: "Start",
+      meta: "4 weeks",
+    },
+  ];
+
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const t = setInterval(() => {
+      setIndex((i) => (i + 1) % slides.length);
+    }, 4000);
+    return () => clearInterval(t);
+  }, []);
+
   return (
     <aside className="space-y-6 rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-100">
       <div className="space-y-3">
@@ -57,12 +87,60 @@ const RightSideNav = () => {
           </a>
         </div>
       </div>
-      {/* q zone */}
+      {/* interactive spotlight (replaces Q Zone) */}
       <div className="space-y-3 rounded-3xl bg-slate-50 p-4">
-        <h2 className="text-lg font-semibold text-slate-900">Q Zone</h2>
-        <img className="rounded-2xl shadow-sm" src={qZone1} alt="Swimming" />
-        <img className="rounded-2xl shadow-sm" src={qZone2} alt="Class" />
-        <img className="rounded-2xl shadow-sm" src={qZone3} alt="Play Ground" />
+        <h2 className="text-lg font-semibold text-slate-900">Spotlight</h2>
+
+        <div className="mt-3">
+          <div className="carousel relative overflow-hidden rounded-2xl bg-white p-3 shadow-sm">
+            <button
+              aria-label="Previous"
+              className="carousel-btn left"
+              onClick={() => setIndex((i) => (i - 1 + slides.length) % slides.length)}
+            >
+              <FaChevronLeft />
+            </button>
+
+            <div className="carousel-track h-36">
+              {slides.map((s, i) => (
+                <div
+                  key={s.title}
+                  className={`slide ${i === index ? "active" : ""}`}
+                  aria-hidden={i === index ? "false" : "true"}
+                >
+                  <div className="h-full w-full rounded-lg p-4">
+                    <div className="h-full rounded-lg bg-gradient-to-br from-indigo-600 to-pink-500 p-4 text-white">
+                      <h3 className="text-sm font-semibold">{s.title}</h3>
+                      <p className="mt-1 text-xs leading-5 opacity-90">{s.body}</p>
+                      <div className="mt-4 flex items-center justify-between">
+                        <span className="text-sm font-bold">{s.cta}</span>
+                        <small className="opacity-80 text-xs">{s.meta}</small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <button
+              aria-label="Next"
+              className="carousel-btn right"
+              onClick={() => setIndex((i) => (i + 1) % slides.length)}
+            >
+              <FaChevronRight />
+            </button>
+          </div>
+          <div className="mt-2 flex items-center justify-center gap-2">
+            {slides.map((_, i) => (
+              <button
+                key={i}
+                className={`w-2 h-2 rounded-full ${i === index ? "bg-indigo-600" : "bg-slate-300"}`}
+                aria-label={`Go to slide ${i + 1}`}
+                onClick={() => setIndex(i)}
+              />
+            ))}
+          </div>
+        </div>
       </div>
     </aside>
   );
