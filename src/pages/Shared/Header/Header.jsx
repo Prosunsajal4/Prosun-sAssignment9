@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <header className="relative overflow-hidden mb-8" role="banner">
       <div className="hero-heroGradient">
-        <div className="max-w-6xl mx-auto text-center text-white py-12 md:py-20 px-4">
+        <div className="container-max text-center text-white py-12 md:py-20 px-4">
           <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight leading-tight">
             Skill is Power
           </h1>
@@ -18,7 +18,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <div className="max-w-6xl mx-auto flex items-center justify-between mt-6 px-4">
+      <div className="container-max flex items-center justify-between mt-6 px-4">
         <div className="flex items-center gap-3">
           <img className="w-12 h-12" src={logo} alt="Esho Shikhi logo" />
           <div>
