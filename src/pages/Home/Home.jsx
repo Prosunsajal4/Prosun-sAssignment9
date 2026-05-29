@@ -1,9 +1,28 @@
+import { useEffect } from "react";
 import Header from "../Shared/Header/Header";
 import LeftSideNav from "../Shared/LeftSideNav/LeftSideNav";
 import Navbar from "../Shared/Navbar/Navbar";
 import RightSideNav from "../Shared/RightSideNav/RightSideNav";
 
 const Home = () => {
+  useEffect(() => {
+    const els = document.querySelectorAll(".reveal-on-scroll");
+    if (!els.length) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("reveal-show");
+            io.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, []);
+
   return (
     <div>
       <Header />
@@ -15,7 +34,7 @@ const Home = () => {
           </aside>
 
           <div className="space-y-10">
-            <section className="rounded-3xl bg-white p-6 shadow-sm sm:p-8">
+            <section className="rounded-3xl bg-white p-6 shadow-sm sm:p-8 reveal-on-scroll">
               <div className="mb-6 flex items-end justify-between gap-4">
                 <div>
                   <p className="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-600">
@@ -77,7 +96,9 @@ const Home = () => {
                         <span className="font-semibold text-amber-500">
                           {ins.rating} ★
                         </span>
-                        <span className="text-slate-500">{ins.slots} slots</span>
+                        <span className="text-slate-500">
+                          {ins.slots} slots
+                        </span>
                       </div>
                     </div>
                   </article>
@@ -104,7 +125,10 @@ const Home = () => {
                     "Choose a Provider",
                     "Select a top-rated instructor based on reviews and slots availability.",
                   ],
-                  ["Start Learning", "Join live classes or access tutorials at your own pace."],
+                  [
+                    "Start Learning",
+                    "Join live classes or access tutorials at your own pace.",
+                  ],
                   [
                     "Get Certified",
                     "Complete the course and receive a certificate to showcase your skills.",
@@ -128,7 +152,7 @@ const Home = () => {
               </div>
             </section>
 
-            <section className="rounded-3xl bg-white p-6 shadow-sm sm:p-8">
+            <section className="rounded-3xl bg-white p-6 shadow-sm sm:p-8 reveal-on-scroll">
               <div className="mb-6 text-center">
                 <p className="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-600">
                   Testimonials
@@ -141,8 +165,7 @@ const Home = () => {
                 {[
                   {
                     name: "Trisha Chakrabarti",
-                    avatar:
-                      "https://randomuser.me/api/portraits/women/44.jpg",
+                    avatar: "https://randomuser.me/api/portraits/women/44.jpg",
                     text: "This course helped me gain confidence in speaking English. Highly recommend!",
                   },
                   {
@@ -152,8 +175,7 @@ const Home = () => {
                   },
                   {
                     name: "Ananya Sen",
-                    avatar:
-                      "https://randomuser.me/api/portraits/women/68.jpg",
+                    avatar: "https://randomuser.me/api/portraits/women/68.jpg",
                     text: "The yoga sessions helped me stay relaxed and focus on my studies.",
                   },
                 ].map((person) => (
@@ -177,12 +199,13 @@ const Home = () => {
               </div>
             </section>
 
-            <footer className="rounded-3xl bg-slate-950 px-6 py-8 text-white shadow-sm sm:px-8">
+            <footer className="rounded-3xl bg-slate-950 px-6 py-8 text-white shadow-sm sm:px-8 reveal-on-scroll">
               <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
                 <div>
                   <h3 className="text-lg font-semibold">Esho Shikhi</h3>
                   <p className="mt-2 text-sm text-slate-300">
-                    Learn something new every day with curated lessons and trusted instructors.
+                    Learn something new every day with curated lessons and
+                    trusted instructors.
                   </p>
                 </div>
                 <div>
