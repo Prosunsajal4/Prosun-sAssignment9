@@ -8,22 +8,15 @@ const Login = () => {
     const { signIn } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
-    console.log('location i n the login page', location)
 
     const handleLogin = e => {
         e.preventDefault();
-        console.log(e.currentTarget);
         const form = new FormData(e.currentTarget);
         const email = form.get('email');
         const password = form.get('password');
-        console.log(email, password);
         signIn(email, password)
-            .then(result => {
-                console.log(result.user);
-
-                
+            .then(() => {
                 navigate(location?.state ? location.state : '/');
-
             })
             .catch(error => {
                 console.error(error);

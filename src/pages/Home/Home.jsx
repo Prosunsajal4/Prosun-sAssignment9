@@ -6,8 +6,7 @@ import RightSideNav from "../Shared/RightSideNav/RightSideNav";
 // removed BreakingNews and NewsCard usages — replaced with generic sections
 
 const Home = () => {
-  // keep loader data available for future use but don't render 'news' cards
-  const data = useLoaderData();
+  useLoaderData();
   return (
     <div>
       <Header></Header>
