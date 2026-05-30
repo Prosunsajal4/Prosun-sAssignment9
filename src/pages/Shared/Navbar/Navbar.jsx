@@ -24,15 +24,12 @@ const Navbar = () => {
       <li>
         <NavLink to="/addict">Addict</NavLink>
       </li>
-      <li>
-        <NavLink to="/login">Login</NavLink>
-      </li>
     </>
   );
 
   return (
     <nav
-      className="navbar bg-white/60 backdrop-blur-sm shadow-sm sticky top-0 z-40"
+      className="navbar bg-white/80 backdrop-blur-sm shadow-sm sticky top-0 z-40"
       role="navigation"
       aria-label="Main Navigation"
     >
@@ -79,27 +76,27 @@ const Navbar = () => {
         </div>
 
         <div className="navbar-end flex items-center gap-3">
-          <label
-            tabIndex={0}
-            className="btn btn-ghost btn-circle avatar"
-            aria-label="User menu"
-          >
-            <div className="w-10 rounded-full ring-2 ring-indigo-300 overflow-hidden">
-              <img src={userDefaultPic} alt="User avatar" />
-            </div>
-          </label>
           {user ? (
-            <button
-              onClick={handleSignOut}
-              className="btn btn-sm bg-indigo-600 text-white hover:bg-indigo-700"
-            >
-              Sign Out
-            </button>
-          ) : (
-            <Link to="/login">
-              <button className="btn btn-sm bg-indigo-600 text-white hover:bg-indigo-700">
-                Login
+            <>
+              <div className="w-10 rounded-full ring-2 ring-indigo-300 overflow-hidden">
+                <img
+                  src={user?.photoURL || userDefaultPic}
+                  alt="User avatar"
+                />
+              </div>
+              <button
+                onClick={handleSignOut}
+                className="rounded-xl bg-indigo-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-indigo-700"
+              >
+                Sign Out
               </button>
+            </>
+          ) : (
+            <Link
+              to="/login"
+              className="rounded-xl bg-indigo-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-indigo-700"
+            >
+              Login
             </Link>
           )}
         </div>
