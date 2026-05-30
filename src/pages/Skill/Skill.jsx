@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { useLoaderData, useParams, Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import { useDashboard } from "../../providers/DashboardProvider";
+import { getCategoryColor } from "../../utils/categoryColors";
 import RightSideNav from "../Shared/RightSideNav/RightSideNav";
 import {
   FaStar,
@@ -84,7 +85,7 @@ const Skill = () => {
 
             <div className="p-6 sm:p-8">
               <div className="flex flex-wrap items-center gap-3 mb-4">
-                <span className="rounded-full bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-700">
+                <span className={`rounded-full px-3 py-1 text-xs font-medium ${getCategoryColor(skill.category_id).bg} ${getCategoryColor(skill.category_id).text} ${getCategoryColor(skill.category_id).darkBg} ${getCategoryColor(skill.category_id).darkText}`}>
                   {skill.category_id}
                 </span>
                 <div className="flex items-center gap-1">
