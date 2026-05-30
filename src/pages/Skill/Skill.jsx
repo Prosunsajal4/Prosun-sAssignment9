@@ -1,7 +1,6 @@
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData, useParams, Link } from "react-router-dom";
 import RightSideNav from "../Shared/RightSideNav/RightSideNav";
-import { FaStar, FaArrowLeft, FaShareAlt } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { FaStar, FaArrowLeft, FaShareAlt, FaHeart, FaClock, FaUsers } from "react-icons/fa";
 
 const Skill = () => {
   const { id } = useParams();
@@ -11,7 +10,8 @@ const Skill = () => {
     return (
       <main id="main-content" className="py-8">
         <div className="rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-100 text-center">
-          <p className="text-slate-500">Loading skill data...</p>
+          <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-indigo-200 border-t-indigo-600" />
+          <p className="mt-4 text-sm text-slate-500">Loading skill data...</p>
         </div>
       </main>
     );
@@ -29,26 +29,32 @@ const Skill = () => {
         <article className="space-y-6">
           <Link
             to="/"
-            className="inline-flex items-center gap-2 text-sm font-medium text-slate-600 transition hover:text-indigo-600"
+            className="inline-flex items-center gap-2 text-sm font-medium text-slate-500 transition hover:text-indigo-600"
           >
             <FaArrowLeft className="h-3.5 w-3.5" />
             Back to skills
           </Link>
 
-          <div className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-100 sm:p-8">
-            <div className="relative h-64 overflow-hidden rounded-2xl bg-slate-100">
+          <div className="rounded-3xl bg-white shadow-sm ring-1 ring-slate-100 overflow-hidden">
+            <div className="relative h-72 sm:h-80 bg-slate-100">
               <img
                 src={skill.image_url}
                 alt={skill.title}
                 className="h-full w-full object-cover"
               />
-              <span className="absolute top-4 right-4 rounded-xl bg-white/90 px-3 py-1.5 text-sm font-bold text-indigo-700 backdrop-blur-sm shadow-md">
-                {skill.price}
-              </span>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+              <div className="absolute bottom-4 left-4 right-4">
+                <span className="inline-block rounded-lg bg-white/90 px-3 py-1 text-xs font-bold text-indigo-700 backdrop-blur-sm mb-2">
+                  {skill.price}
+                </span>
+                <h1 className="text-2xl sm:text-3xl font-bold text-white drop-shadow-lg">
+                  {skill.title}
+                </h1>
+              </div>
             </div>
 
-            <div className="mt-6">
-              <div className="flex items-center gap-2 mb-3">
+            <div className="p-6 sm:p-8">
+              <div className="flex flex-wrap items-center gap-3 mb-4">
                 <span className="rounded-full bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-700">
                   {skill.category_id}
                 </span>
@@ -58,21 +64,29 @@ const Skill = () => {
                     {skill.rating.number}
                   </span>
                 </div>
+                <div className="flex items-center gap-1 text-xs text-slate-500">
+                  <FaUsers className="h-3.5 w-3.5" />
+                  <span>128 enrolled</span>
+                </div>
+                <div className="flex items-center gap-1 text-xs text-slate-500">
+                  <FaClock className="h-3.5 w-3.5" />
+                  <span>4 weeks</span>
+                </div>
               </div>
 
-              <h1 className="text-2xl font-bold text-slate-900">
-                {skill.title}
-              </h1>
-
-              <p className="mt-4 text-base leading-7 text-slate-600">
+              <p className="text-base leading-7 text-slate-600">
                 {skill.details}
               </p>
 
-              <div className="mt-6 flex gap-3">
+              <div className="mt-6 flex flex-wrap gap-3">
                 <button className="rounded-xl bg-indigo-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-indigo-700 shadow-md hover:shadow-lg">
                   Enroll Now
                 </button>
-                <button className="flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-700 transition hover:bg-slate-50">
+                <button className="flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-700 transition hover:bg-slate-50 hover:border-slate-300">
+                  <FaHeart className="h-4 w-4" />
+                  Save
+                </button>
+                <button className="flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-700 transition hover:bg-slate-50 hover:border-slate-300">
                   <FaShareAlt className="h-4 w-4" />
                   Share
                 </button>
@@ -90,20 +104,20 @@ const Skill = () => {
                   <Link
                     key={s._id}
                     to={`/skill/${encodeURIComponent(s.title)}`}
-                    className="rounded-2xl border border-slate-100 bg-slate-50 p-4 transition-all hover:bg-white hover:shadow-sm"
+                    className="group rounded-2xl border border-slate-100 bg-slate-50 p-4 transition-all hover:bg-white hover:shadow-md"
                   >
-                    <div className="h-24 overflow-hidden rounded-xl bg-slate-100">
+                    <div className="h-28 overflow-hidden rounded-xl bg-slate-100">
                       <img
                         src={s.image_url}
                         alt={s.title}
-                        className="h-full w-full object-cover"
+                        className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
                       />
                     </div>
                     <h3 className="mt-3 text-sm font-semibold text-slate-900 line-clamp-2">
                       {s.title}
                     </h3>
                     <div className="mt-2 flex items-center justify-between">
-                      <span className="text-xs font-bold text-indigo-600">
+                      <span className="text-sm font-bold text-indigo-600">
                         {s.price}
                       </span>
                       <span className="flex items-center gap-1 text-xs text-slate-500">
