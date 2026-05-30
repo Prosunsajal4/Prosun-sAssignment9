@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom";
 import Navbar from "../pages/Shared/Navbar/Navbar";
 import Footer from "../pages/Shared/Footer/Footer";
 import ScrollToTop from "../components/ScrollToTop";
+import FloatingBackToTop from "../components/FloatingBackToTop";
 
 const Root = () => {
   return (
@@ -15,6 +16,7 @@ const Root = () => {
         <Outlet />
       </div>
       <Footer />
+      <FloatingBackToTop />
     </div>
   );
 };
