@@ -17,7 +17,7 @@ const Header = () => {
             <span className="h-2 w-2 rounded-full bg-green-400 animate-pulse" />
             New courses launching every week
           </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1]">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] drop-shadow-lg">
             Learn in-demand skills
           </h1>
           <p className="mt-5 text-base md:text-lg opacity-90 max-w-2xl mx-auto leading-relaxed">
