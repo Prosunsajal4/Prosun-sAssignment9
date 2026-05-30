@@ -12,7 +12,7 @@ const Root = () => {
         Skip to main content
       </a>
       <Navbar />
-      <div className="container-max flex-1 px-4 py-6">
+      <div className="container-max flex-1 px-4 py-6 page-enter">
         <Outlet />
       </div>
       <Footer />
