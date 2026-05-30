@@ -57,14 +57,14 @@ const Addict = () => {
   return (
     <main id="main-content" className="mx-auto max-w-4xl py-8 space-y-8">
       {/* Hero */}
-      <div className="rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-100">
+      <div className="rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-100 dark:bg-slate-900 dark:ring-slate-800">
         <p className="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-600">
           Favorites
         </p>
-        <h1 className="mt-2 text-3xl font-bold text-slate-900">
+        <h1 className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">
           Your learning bookmarks
         </h1>
-        <p className="mt-4 text-base leading-7 text-slate-600">
+        <p className="mt-4 text-base leading-7 text-slate-600 dark:text-slate-400">
           Keep track of courses you love, topics you want to explore, and
           skills you&apos;re working on. This is your personal learning space.
         </p>
@@ -93,7 +93,7 @@ const Addict = () => {
       {categories.map(({ icon: Icon, title, count, description, items }) => (
         <div
           key={title}
-          className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-100 sm:p-8"
+          className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-100 sm:p-8 dark:bg-slate-900 dark:ring-slate-800"
         >
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -101,7 +101,7 @@ const Addict = () => {
                 <Icon className="h-5 w-5" />
               </div>
               <div>
-                <h2 className="text-lg font-semibold text-slate-900">
+                <h2 className="text-lg font-semibold text-slate-900 dark:text-white">
                   {title}
                 </h2>
                 <p className="text-xs text-slate-500">{count} items</p>
