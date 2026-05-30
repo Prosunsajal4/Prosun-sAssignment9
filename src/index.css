@@ -14,6 +14,11 @@ body {
   background: linear-gradient(180deg, #f7f9fc 0%, #ffffff 100%);
 }
 
+.dark body,
+body.dark {
+  background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
