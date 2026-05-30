@@ -206,6 +206,55 @@ const Home = () => {
               </div>
             </section>
 
+            {/* Features */}
+            <section className="rounded-3xl bg-white p-6 shadow-sm sm:p-8 reveal-on-scroll dark:bg-slate-900 dark:ring-slate-800">
+              <div className="mb-6 text-center">
+                <p className="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-600">
+                  Why Esho Shikhi
+                </p>
+                <h2 className="mt-2 text-2xl font-bold text-slate-900 dark:text-white">
+                  Everything you need to succeed
+                </h2>
+              </div>
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                {[
+                  {
+                    icon: "🎓",
+                    title: "Expert Instructors",
+                    desc: "Learn from industry practitioners with real-world experience.",
+                  },
+                  {
+                    icon: "📋",
+                    title: "Verified Certificates",
+                    desc: "Earn certificates that are recognized by employers.",
+                  },
+                  {
+                    icon: "⏱️",
+                    title: "Learn at Your Pace",
+                    desc: "Access courses anytime, anywhere, on any device.",
+                  },
+                  {
+                    icon: "🤝",
+                    title: "Community Support",
+                    desc: "Join a community of learners and get help when stuck.",
+                  },
+                ].map(({ icon, title, desc }) => (
+                  <div
+                    key={title}
+                    className="rounded-2xl border border-slate-100 bg-slate-50 p-5 text-center transition-all hover:shadow-md dark:border-slate-700 dark:bg-slate-800"
+                  >
+                    <span className="text-3xl">{icon}</span>
+                    <h3 className="mt-3 text-sm font-semibold text-slate-900 dark:text-white">
+                      {title}
+                    </h3>
+                    <p className="mt-1.5 text-xs leading-5 text-slate-500 dark:text-slate-400">
+                      {desc}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </section>
+
             {/* Newsletter */}
             <section className="rounded-3xl bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 p-8 text-white shadow-lg reveal-on-scroll">
               <div className="flex flex-col items-center text-center">
