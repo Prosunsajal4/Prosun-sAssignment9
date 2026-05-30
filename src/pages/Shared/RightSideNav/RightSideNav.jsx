@@ -1,9 +1,7 @@
 import {
   FaFacebook,
-  FaGithub,
-  FaGoogle,
-  FaInstagram,
   FaTwitter,
+  FaInstagram,
   FaChevronLeft,
   FaChevronRight,
 } from "react-icons/fa";
@@ -42,27 +40,14 @@ const RightSideNav = () => {
 
   return (
     <aside className="space-y-6 rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-100">
-      <div className="space-y-3">
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-indigo-600">
-            Join Now
-          </p>
-          <h2 className="mt-2 text-lg font-semibold text-slate-900">Login</h2>
-        </div>
-        <button className="btn btn-outline w-full justify-start gap-2 rounded-2xl border-slate-200 bg-white text-slate-700 hover:border-indigo-200 hover:bg-indigo-50">
-          <FaGoogle />
-          <span>Continue with Google</span>
-        </button>
-        <button className="btn btn-outline w-full justify-start gap-2 rounded-2xl border-slate-200 bg-white text-slate-700 hover:border-indigo-200 hover:bg-indigo-50">
-          <FaGithub />
-          <span>Continue with GitHub</span>
-        </button>
-      </div>
-      <div className="rounded-3xl bg-slate-50 p-4">
-        <h2 className="text-lg font-semibold text-slate-900">Follow</h2>
+      <div>
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-indigo-600">
+          Stay Connected
+        </p>
+        <h2 className="mt-2 text-lg font-semibold text-slate-900">Follow Us</h2>
         <div className="mt-3 flex flex-col">
           <a
-            className="flex items-center gap-3 rounded-2xl p-3 text-sm text-slate-600 transition hover:bg-white hover:text-indigo-700"
+            className="flex items-center gap-3 rounded-2xl p-3 text-sm text-slate-600 transition hover:bg-indigo-50 hover:text-indigo-700"
             href="https://facebook.com"
             target="_blank"
             rel="noreferrer"
@@ -70,7 +55,7 @@ const RightSideNav = () => {
             <FaFacebook /> Facebook
           </a>
           <a
-            className="flex items-center gap-3 rounded-2xl p-3 text-sm text-slate-600 transition hover:bg-white hover:text-indigo-700"
+            className="flex items-center gap-3 rounded-2xl p-3 text-sm text-slate-600 transition hover:bg-indigo-50 hover:text-indigo-700"
             href="https://twitter.com"
             target="_blank"
             rel="noreferrer"
@@ -78,7 +63,7 @@ const RightSideNav = () => {
             <FaTwitter /> Twitter
           </a>
           <a
-            className="flex items-center gap-3 rounded-2xl p-3 text-sm text-slate-600 transition hover:bg-white hover:text-indigo-700"
+            className="flex items-center gap-3 rounded-2xl p-3 text-sm text-slate-600 transition hover:bg-indigo-50 hover:text-indigo-700"
             href="https://instagram.com"
             target="_blank"
             rel="noreferrer"
@@ -87,35 +72,39 @@ const RightSideNav = () => {
           </a>
         </div>
       </div>
-      {/* interactive spotlight (replaces Q Zone) */}
-      <div className="space-y-3 rounded-3xl bg-slate-50 p-4">
-        <h2 className="text-lg font-semibold text-slate-900">Spotlight</h2>
 
+      <div className="rounded-3xl bg-slate-50 p-4">
+        <h2 className="text-lg font-semibold text-slate-900">Spotlight</h2>
         <div className="mt-3">
-          <div className="carousel relative overflow-hidden rounded-2xl bg-white p-3 shadow-sm">
+          <div className="relative overflow-hidden rounded-2xl bg-white p-3 shadow-sm">
             <button
               aria-label="Previous"
-              className="carousel-btn left"
-              onClick={() => setIndex((i) => (i - 1 + slides.length) % slides.length)}
+              className="absolute left-2 top-1/2 z-10 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 shadow-sm transition hover:bg-white"
+              onClick={() =>
+                setIndex((i) => (i - 1 + slides.length) % slides.length)
+              }
             >
-              <FaChevronLeft />
+              <FaChevronLeft className="h-3.5 w-3.5 text-slate-600" />
             </button>
 
-            <div className="carousel-track h-36">
+            <div className="relative h-36 overflow-hidden">
               {slides.map((s, i) => (
                 <div
                   key={s.title}
-                  className={`slide ${i === index ? "active" : ""}`}
-                  aria-hidden={i === index ? "false" : "true"}
+                  className={`absolute inset-0 transition-all duration-300 ${
+                    i === index
+                      ? "opacity-100 translate-y-0"
+                      : "opacity-0 translate-y-2 pointer-events-none"
+                  }`}
                 >
-                  <div className="h-full w-full rounded-lg p-4">
-                    <div className="h-full rounded-lg bg-gradient-to-br from-indigo-600 to-pink-500 p-4 text-white">
-                      <h3 className="text-sm font-semibold">{s.title}</h3>
-                      <p className="mt-1 text-xs leading-5 opacity-90">{s.body}</p>
-                      <div className="mt-4 flex items-center justify-between">
-                        <span className="text-sm font-bold">{s.cta}</span>
-                        <small className="opacity-80 text-xs">{s.meta}</small>
-                      </div>
+                  <div className="h-full rounded-lg bg-gradient-to-br from-indigo-600 to-pink-500 p-4 text-white">
+                    <h3 className="text-sm font-semibold">{s.title}</h3>
+                    <p className="mt-1 text-xs leading-5 opacity-90">
+                      {s.body}
+                    </p>
+                    <div className="mt-4 flex items-center justify-between">
+                      <span className="text-sm font-bold">{s.cta}</span>
+                      <small className="opacity-80 text-xs">{s.meta}</small>
                     </div>
                   </div>
                 </div>
@@ -124,17 +113,19 @@ const RightSideNav = () => {
 
             <button
               aria-label="Next"
-              className="carousel-btn right"
+              className="absolute right-2 top-1/2 z-10 flex h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 shadow-sm transition hover:bg-white"
               onClick={() => setIndex((i) => (i + 1) % slides.length)}
             >
-              <FaChevronRight />
+              <FaChevronRight className="h-3.5 w-3.5 text-slate-600" />
             </button>
           </div>
-          <div className="mt-2 flex items-center justify-center gap-2">
+          <div className="mt-3 flex items-center justify-center gap-2">
             {slides.map((_, i) => (
               <button
                 key={i}
-                className={`w-2 h-2 rounded-full ${i === index ? "bg-indigo-600" : "bg-slate-300"}`}
+                className={`h-2 w-2 rounded-full transition-colors ${
+                  i === index ? "bg-indigo-600" : "bg-slate-300"
+                }`}
                 aria-label={`Go to slide ${i + 1}`}
                 onClick={() => setIndex(i)}
               />
