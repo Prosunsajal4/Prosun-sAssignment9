@@ -7,6 +7,16 @@ const News = () => {
   const { id } = useParams();
   const courses = useLoaderData();
 
+  if (!courses || courses.length === 0) {
+    return (
+      <main id="main-content" className="py-8">
+        <div className="rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-100 text-center">
+          <p className="text-slate-500">Loading course data...</p>
+        </div>
+      </main>
+    );
+  }
+
   const course = courses.find(
     (c) => c.title === decodeURIComponent(id)
   ) || courses[0];
