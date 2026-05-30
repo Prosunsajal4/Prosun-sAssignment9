@@ -14,25 +14,16 @@ body {
   background: linear-gradient(180deg, #f7f9fc 0%, #ffffff 100%);
 }
 
-/* Design tokens */
 :root {
-  --bg: #ffffff;
-  --muted: #6b7280;
   --accent-1: #4f46e5;
   --accent-2: #7c3aed;
   --accent-3: #ec4899;
-  --card-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
 }
 
 .font-poppins {
   font-family: "Poppins", sans-serif;
 }
 
-.card-body p {
-  line-height: 1.6;
-}
-
-/* Hero gradient used in header */
 .hero-heroGradient {
   background: linear-gradient(
     90deg,
@@ -40,31 +31,17 @@ body {
     var(--accent-2) 40%,
     var(--accent-3) 100%
   );
-  border-radius: 12px;
-  padding: 3rem 1rem;
 }
 
-/* Utility tweaks to better match design */
 .container-max {
   max-width: 1144px;
   margin: 0 auto;
 }
 
-/* Make container full-bleed on large screens (desktop) while keeping centered constraint on small screens */
-@media (min-width: 1024px) {
-  .container-max {
-    max-width: none;
-    margin: 0;
-    width: 100%;
-    padding-left: 1.25rem; /* keep comfortable side padding */
-    padding-right: 1.25rem;
-  }
-}
-
 .instructor-card {
-  background: var(--bg);
+  background: #ffffff;
   border-radius: 12px;
-  box-shadow: var(--card-shadow);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
   transition:
     transform 200ms ease,
     box-shadow 200ms ease;
@@ -74,7 +51,6 @@ body {
   box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12);
 }
 
-/* Accessible skip link */
 .skip-link {
   position: absolute;
   left: -9999px;
@@ -95,58 +71,6 @@ body {
   border-radius: 6px;
 }
 
-/* Carousel / Spotlight styles for RightSideNav */
-.carousel {
-  --btn-size: 36px;
-}
-.carousel-track {
-  position: relative;
-}
-.slide {
-  display: none;
-  opacity: 0;
-  transform: translateY(6px);
-  transition:
-    opacity 300ms ease,
-    transform 300ms ease;
-}
-.slide.active {
-  display: block;
-  opacity: 1;
-  transform: translateY(0);
-}
-.carousel-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: var(--btn-size);
-  height: var(--btn-size);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 9999px;
-  box-shadow: 0 6px 18px rgba(2, 6, 23, 0.08);
-  border: 1px solid rgba(15, 23, 42, 0.04);
-}
-.carousel-btn.left {
-  left: 8px;
-}
-.carousel-btn.right {
-  right: 8px;
-}
-.carousel-btn svg {
-  width: 14px;
-  height: 14px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .slide {
-    transition: none;
-  }
-}
-
-/* Reveal on scroll */
 .reveal-on-scroll {
   opacity: 0;
   transform: translateY(12px);
@@ -157,4 +81,10 @@ body {
 .reveal-on-scroll.reveal-show {
   opacity: 1;
   transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-on-scroll {
+    transition: none;
+  }
 }
