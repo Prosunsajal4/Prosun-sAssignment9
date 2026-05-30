@@ -1,5 +1,5 @@
 {
-  "name": "react-dragon-news-auth",
+  "name": "esho-shikhi",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -11,16 +11,11 @@
   },
   "dependencies": {
     "firebase": "^12.13.0",
-    "localforage": "^1.10.0",
-    "match-sorter": "^6.3.1",
-    "moment": "^2.29.4",
     "react": "^18.3.1",
     "react-dom": "^18.2.0",
-    "react-fast-marquee": "^1.6.1",
     "react-icons": "^4.11.0",
     "react-router": "^6.16.0",
-    "react-router-dom": "^6.30.1",
-    "sort-by": "^0.0.2"
+    "react-router-dom": "^6.30.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
