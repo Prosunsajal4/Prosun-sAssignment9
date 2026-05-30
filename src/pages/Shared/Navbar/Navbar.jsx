@@ -123,7 +123,7 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-3 shadow-lg bg-white dark:bg-slate-900 rounded-2xl w-56 border border-slate-100 dark:border-slate-700"
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-3 shadow-xl bg-white dark:bg-slate-900 rounded-2xl w-56 border border-slate-100 dark:border-slate-700 animate-[fadeIn_200ms_ease-out]"
               aria-label="Mobile navigation"
             >
               {navLinks}
