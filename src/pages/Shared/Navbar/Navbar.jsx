@@ -2,10 +2,12 @@ import { Link, NavLink } from "react-router-dom";
 import userDefaultPic from "../../../assets/user.png";
 import { useContext } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
-import { FaGraduationCap, FaTachometerAlt } from "react-icons/fa";
+import { useTheme } from "../../../providers/ThemeProvider";
+import { FaGraduationCap, FaTachometerAlt, FaSun, FaMoon } from "react-icons/fa";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
+  const { theme, toggleTheme } = useTheme();
 
   const handleSignOut = () => {
     logOut().then().catch();
@@ -19,8 +21,8 @@ const Navbar = () => {
           className={({ isActive }) =>
             `rounded-xl px-4 py-2 text-sm font-medium transition-all ${
               isActive
-                ? "bg-indigo-50 text-indigo-700"
-                : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
+                ? "bg-indigo-50 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-400"
+                : "text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white"
             }`
           }
         >
@@ -33,8 +35,8 @@ const Navbar = () => {
           className={({ isActive }) =>
             `rounded-xl px-4 py-2 text-sm font-medium transition-all ${
               isActive
-                ? "bg-indigo-50 text-indigo-700"
-                : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
+                ? "bg-indigo-50 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-400"
+                : "text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white"
             }`
           }
         >
@@ -47,8 +49,8 @@ const Navbar = () => {
           className={({ isActive }) =>
             `rounded-xl px-4 py-2 text-sm font-medium transition-all ${
               isActive
-                ? "bg-indigo-50 text-indigo-700"
-                : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
+                ? "bg-indigo-50 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-400"
+                : "text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white"
             }`
           }
         >
@@ -61,8 +63,8 @@ const Navbar = () => {
           className={({ isActive }) =>
             `rounded-xl px-4 py-2 text-sm font-medium transition-all ${
               isActive
-                ? "bg-indigo-50 text-indigo-700"
-                : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
+                ? "bg-indigo-50 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-400"
+                : "text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white"
             }`
           }
         >
@@ -74,7 +76,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className="sticky top-0 z-40 border-b border-slate-100 bg-white/80 backdrop-blur-lg"
+      className="sticky top-0 z-40 border-b border-slate-100 bg-white/80 backdrop-blur-lg dark:border-slate-800 dark:bg-slate-900/80"
       role="navigation"
       aria-label="Main Navigation"
     >
@@ -84,7 +86,7 @@ const Navbar = () => {
           <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-600 to-pink-500 text-white shadow-md">
             <FaGraduationCap className="h-5 w-5" />
           </div>
-          <span className="text-lg font-bold text-slate-900 hidden sm:block">
+          <span className="text-lg font-bold text-slate-900 dark:text-white hidden sm:block">
             Esho Shikhi
           </span>
         </Link>
@@ -101,7 +103,7 @@ const Navbar = () => {
           <div className="dropdown">
             <label
               tabIndex={0}
-              className="flex h-10 w-10 items-center justify-center rounded-xl text-slate-600 transition hover:bg-slate-100"
+              className="flex h-10 w-10 items-center justify-center rounded-xl text-slate-600 transition hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800"
               aria-label="Open navigation menu"
             >
               <svg
@@ -121,7 +123,7 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content mt-3 z-[1] p-3 shadow-lg bg-white rounded-2xl w-56 border border-slate-100"
+              className="menu menu-sm dropdown-content mt-3 z-[1] p-3 shadow-lg bg-white dark:bg-slate-900 rounded-2xl w-56 border border-slate-100 dark:border-slate-700"
               aria-label="Mobile navigation"
             >
               {navLinks}
@@ -132,8 +134,8 @@ const Navbar = () => {
                     className={({ isActive }) =>
                       `rounded-xl px-4 py-2 text-sm font-medium transition-all ${
                         isActive
-                          ? "bg-indigo-50 text-indigo-700"
-                          : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
+                          ? "bg-indigo-50 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-400"
+                          : "text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white"
                       }`
                     }
                   >
@@ -147,7 +149,20 @@ const Navbar = () => {
         </div>
 
         {/* User actions */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2">
+          {/* Theme toggle */}
+          <button
+            onClick={toggleTheme}
+            className="flex h-9 w-9 items-center justify-center rounded-xl text-slate-600 transition hover:bg-slate-100 dark:text-slate-400 dark:hover:bg-slate-800"
+            aria-label="Toggle theme"
+          >
+            {theme === "light" ? (
+              <FaMoon className="h-4 w-4" />
+            ) : (
+              <FaSun className="h-4 w-4" />
+            )}
+          </button>
+
           {user ? (
             <>
               <NavLink
@@ -155,8 +170,8 @@ const Navbar = () => {
                 className={({ isActive }) =>
                   `hidden sm:flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-medium transition-all ${
                     isActive
-                      ? "bg-indigo-50 text-indigo-700"
-                      : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
+                      ? "bg-indigo-50 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-400"
+                      : "text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white"
                   }`
                 }
               >
@@ -173,11 +188,11 @@ const Navbar = () => {
                     />
                   </div>
                 </Link>
-                <span className="absolute -bottom-0.5 -right-0.5 h-3 w-3 rounded-full border-2 border-white bg-green-400" />
+                <span className="absolute -bottom-0.5 -right-0.5 h-3 w-3 rounded-full border-2 border-white dark:border-slate-900 bg-green-400" />
               </div>
               <button
                 onClick={handleSignOut}
-                className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-50 hover:border-slate-300"
+                className="rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-50 hover:border-slate-300 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700"
               >
                 Sign Out
               </button>
@@ -186,7 +201,7 @@ const Navbar = () => {
             <div className="flex items-center gap-2">
               <Link
                 to="/login"
-                className="rounded-xl px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-50 hover:text-slate-900"
+                className="rounded-xl px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-50 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-white"
               >
                 Log in
               </Link>
