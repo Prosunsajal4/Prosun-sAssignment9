@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { FaBook, FaUserGraduate, FaBriefcase, FaHeart } from "react-icons/fa";
+import { FaBook, FaBriefcase, FaHeart } from "react-icons/fa";
 
 const LeftSideNav = () => {
   const links = [

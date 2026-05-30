@@ -7,28 +7,28 @@ import {
 } from "react-icons/fa";
 import { useEffect, useState } from "react";
 
-const RightSideNav = () => {
-  const slides = [
-    {
-      title: "Popular Skill: UI Design",
-      body: "Quick hands-on sessions to build modern interfaces.",
-      cta: "Explore",
-      meta: "12 courses",
-    },
-    {
-      title: "Live Workshops",
-      body: "Join small-group live lessons with top instructors.",
-      cta: "Join Now",
-      meta: "Next: Tomorrow",
-    },
-    {
-      title: "Certificate Tracks",
-      body: "Complete projects and get a sharable certification.",
-      cta: "Start",
-      meta: "4 weeks",
-    },
-  ];
+const slides = [
+  {
+    title: "Popular Skill: UI Design",
+    body: "Quick hands-on sessions to build modern interfaces.",
+    cta: "Explore",
+    meta: "12 courses",
+  },
+  {
+    title: "Live Workshops",
+    body: "Join small-group live lessons with top instructors.",
+    cta: "Join Now",
+    meta: "Next: Tomorrow",
+  },
+  {
+    title: "Certificate Tracks",
+    body: "Complete projects and get a sharable certification.",
+    cta: "Start",
+    meta: "4 weeks",
+  },
+];
 
+const RightSideNav = () => {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
