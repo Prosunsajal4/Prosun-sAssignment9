@@ -1,7 +1,9 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import Header from "../Shared/Header/Header";
 import LeftSideNav from "../Shared/LeftSideNav/LeftSideNav";
 import RightSideNav from "../Shared/RightSideNav/RightSideNav";
+import { FaStar, FaArrowRight, FaPaperPlane } from "react-icons/fa";
 
 const Home = () => {
   useEffect(() => {
@@ -32,6 +34,7 @@ const Home = () => {
           </aside>
 
           <div className="space-y-10">
+            {/* Featured Courses */}
             <section className="rounded-3xl bg-white p-6 shadow-sm sm:p-8 reveal-on-scroll">
               <div className="mb-6 flex items-end justify-between gap-4">
                 <div>
@@ -42,9 +45,12 @@ const Home = () => {
                     Top Courses This Week
                   </h2>
                 </div>
-                <span className="hidden rounded-full bg-indigo-50 px-3 py-1 text-sm font-medium text-indigo-700 sm:inline-flex">
-                  3 curated picks
-                </span>
+                <Link
+                  to="/"
+                  className="hidden items-center gap-1.5 text-sm font-medium text-indigo-600 transition hover:text-indigo-700 sm:inline-flex"
+                >
+                  View all <FaArrowRight className="h-3 w-3" />
+                </Link>
               </div>
 
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
@@ -56,6 +62,7 @@ const Home = () => {
                       "https://images.pexels.com/photos/164821/pexels-photo-164821.jpeg",
                     rating: 4.8,
                     slots: 3,
+                    price: "$20",
                   },
                   {
                     name: "John Ray",
@@ -64,6 +71,7 @@ const Home = () => {
                       "https://images.pexels.com/photos/3184323/pexels-photo-3184323.jpeg",
                     rating: 4.7,
                     slots: 4,
+                    price: "$15",
                   },
                   {
                     name: "Omar Hossain",
@@ -72,41 +80,50 @@ const Home = () => {
                       "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg",
                     rating: 4.9,
                     slots: 4,
+                    price: "$11",
                   },
                 ].map((item) => (
-                  <article
+                  <Link
                     key={item.name}
-                    className="instructor-card overflow-hidden p-0 text-left"
+                    to={`/news/${encodeURIComponent(item.course)}`}
+                    className="instructor-card overflow-hidden p-0 text-left block"
                   >
-                    <div className="h-40 bg-slate-100">
+                    <div className="relative h-44 bg-slate-100">
                       <img
                         className="h-full w-full object-cover"
                         src={item.image}
                         alt={item.course}
                       />
+                      <span className="absolute top-3 right-3 rounded-lg bg-white/90 px-2.5 py-1 text-xs font-bold text-indigo-700 backdrop-blur-sm">
+                        {item.price}
+                      </span>
                     </div>
                     <div className="p-5">
-                      <h3 className="text-base font-semibold text-slate-900">
+                      <h3 className="text-base font-semibold text-slate-900 leading-snug">
                         {item.course}
                       </h3>
-                      <p className="mt-1 text-sm text-slate-500">
+                      <p className="mt-1.5 text-sm text-slate-500">
                         by {item.name}
                       </p>
-                      <div className="mt-4 flex items-center justify-between rounded-2xl bg-slate-50 px-4 py-3 text-sm">
-                        <span className="font-semibold text-amber-500">
-                          {item.rating} ★
-                        </span>
-                        <span className="text-slate-500">
+                      <div className="mt-4 flex items-center justify-between">
+                        <div className="flex items-center gap-1.5">
+                          <FaStar className="h-3.5 w-3.5 text-amber-400" />
+                          <span className="text-sm font-semibold text-slate-700">
+                            {item.rating}
+                          </span>
+                        </div>
+                        <span className="text-xs font-medium text-slate-500 bg-slate-50 px-2.5 py-1 rounded-full">
                           {item.slots} slots left
                         </span>
                       </div>
                     </div>
-                  </article>
+                  </Link>
                 ))}
               </div>
             </section>
 
-            <section className="rounded-3xl bg-white p-6 shadow-sm sm:p-8">
+            {/* How it works */}
+            <section className="rounded-3xl bg-white p-6 shadow-sm sm:p-8 reveal-on-scroll">
               <div className="mb-6 text-center">
                 <p className="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-600">
                   How it works
@@ -123,7 +140,7 @@ const Home = () => {
                   ],
                   [
                     "Choose a Provider",
-                    "Select a top-rated instructor based on reviews and slots availability.",
+                    "Select a top-rated instructor based on reviews and availability.",
                   ],
                   [
                     "Start Learning",
@@ -136,10 +153,10 @@ const Home = () => {
                 ].map(([title, description], index) => (
                   <div
                     key={title}
-                    className="rounded-2xl border border-slate-100 bg-slate-50 p-5"
+                    className="group rounded-2xl border border-slate-100 bg-slate-50 p-5 transition-all hover:bg-white hover:shadow-md hover:border-indigo-100"
                   >
-                    <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-indigo-600 to-pink-500 text-sm font-bold text-white">
-                      0{index + 1}
+                    <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-600 to-pink-500 text-sm font-bold text-white shadow-md group-hover:scale-110 transition-transform">
+                      {index + 1}
                     </div>
                     <h4 className="text-base font-semibold text-slate-900">
                       {title}
@@ -152,6 +169,7 @@ const Home = () => {
               </div>
             </section>
 
+            {/* Testimonials */}
             <section className="rounded-3xl bg-white p-6 shadow-sm sm:p-8 reveal-on-scroll">
               <div className="mb-6 text-center">
                 <p className="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-600">
@@ -165,40 +183,84 @@ const Home = () => {
                 {[
                   {
                     name: "Trisha Chakrabarti",
+                    role: "English Learner",
                     avatar: "https://randomuser.me/api/portraits/women/44.jpg",
                     text: "This course helped me gain confidence in speaking English. Highly recommend!",
+                    rating: 5,
                   },
                   {
                     name: "Rahul Das",
+                    role: "Web Developer",
                     avatar: "https://randomuser.me/api/portraits/men/32.jpg",
                     text: "I learned HTML, CSS, and JS from scratch. Now I can build websites easily!",
+                    rating: 5,
                   },
                   {
                     name: "Ananya Sen",
+                    role: "Yoga Student",
                     avatar: "https://randomuser.me/api/portraits/women/68.jpg",
                     text: "The yoga sessions helped me stay relaxed and focus on my studies.",
+                    rating: 4,
                   },
                 ].map((person) => (
                   <article
                     key={person.name}
-                    className="rounded-2xl border border-slate-100 bg-slate-50 p-6 text-center"
+                    className="rounded-2xl border border-slate-100 bg-slate-50 p-6 transition-all hover:bg-white hover:shadow-md"
                   >
-                    <img
-                      className="mx-auto h-16 w-16 rounded-full object-cover ring-4 ring-white"
-                      src={person.avatar}
-                      alt={person.name}
-                    />
-                    <h4 className="mt-4 text-base font-semibold text-slate-900">
-                      {person.name}
-                    </h4>
-                    <p className="mt-3 text-sm leading-6 text-slate-500">
-                      {person.text}
+                    <div className="flex items-center gap-1 mb-3">
+                      {Array.from({ length: person.rating }).map((_, i) => (
+                        <FaStar
+                          key={i}
+                          className="h-3.5 w-3.5 text-amber-400"
+                        />
+                      ))}
+                    </div>
+                    <p className="text-sm leading-6 text-slate-600 italic">
+                      &ldquo;{person.text}&rdquo;
                     </p>
+                    <div className="mt-4 flex items-center gap-3 pt-4 border-t border-slate-100">
+                      <img
+                        className="h-10 w-10 rounded-full object-cover ring-2 ring-white"
+                        src={person.avatar}
+                        alt={person.name}
+                      />
+                      <div>
+                        <h4 className="text-sm font-semibold text-slate-900">
+                          {person.name}
+                        </h4>
+                        <p className="text-xs text-slate-500">{person.role}</p>
+                      </div>
+                    </div>
                   </article>
                 ))}
               </div>
             </section>
 
+            {/* Newsletter */}
+            <section className="rounded-3xl bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-500 p-8 text-white shadow-lg reveal-on-scroll">
+              <div className="flex flex-col items-center text-center">
+                <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-white/20 backdrop-blur-sm">
+                  <FaPaperPlane className="h-6 w-6" />
+                </div>
+                <h2 className="text-2xl font-bold">
+                  Stay in the loop
+                </h2>
+                <p className="mt-2 max-w-md text-sm text-white/80">
+                  Get notified about new courses, free workshops, and learning
+                  tips. No spam, ever.
+                </p>
+                <div className="mt-6 flex w-full max-w-sm gap-2">
+                  <input
+                    type="email"
+                    placeholder="Enter your email"
+                    className="flex-1 rounded-xl border border-white/20 bg-white/15 px-4 py-3 text-sm text-white placeholder-white/60 backdrop-blur-sm focus:border-white/40 focus:outline-none focus:ring-2 focus:ring-white/20"
+                  />
+                  <button className="shrink-0 rounded-xl bg-white px-5 py-3 text-sm font-semibold text-indigo-700 transition hover:bg-white/90 shadow-md">
+                    Subscribe
+                  </button>
+                </div>
+              </div>
+            </section>
           </div>
 
           <aside className="lg:sticky lg:top-24">
