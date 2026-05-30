@@ -1,35 +1,38 @@
 import { Link } from "react-router-dom";
-import { FaBook, FaBriefcase, FaHeart } from "react-icons/fa";
+import { FaBook, FaBriefcase, FaHeart, FaHome } from "react-icons/fa";
 
 const LeftSideNav = () => {
   const links = [
+    { label: "Home", to: "/", icon: FaHome },
     { label: "About", to: "/about", icon: FaBook },
     { label: "Career", to: "/career", icon: FaBriefcase },
-    { label: "Addict", to: "/addict", icon: FaHeart },
+    { label: "Favorites", to: "/addict", icon: FaHeart },
   ];
 
   return (
     <aside className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-100">
       <div className="mb-4">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-indigo-600">
-          Explore
+          Navigate
         </p>
         <h2 className="mt-2 text-lg font-semibold text-slate-900">
           Quick Links
         </h2>
       </div>
-      <div className="space-y-2">
+      <nav className="space-y-1">
         {links.map(({ label, to, icon: Icon }) => (
           <Link
             key={label}
-            className="flex items-center gap-3 rounded-2xl px-3 py-2.5 text-sm text-slate-600 transition hover:bg-indigo-50 hover:text-indigo-700"
+            className="group flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm text-slate-600 transition-all hover:bg-indigo-50 hover:text-indigo-700"
             to={to}
           >
-            <Icon className="h-4 w-4" />
+            <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-slate-100 text-slate-500 transition group-hover:bg-indigo-100 group-hover:text-indigo-600">
+              <Icon className="h-4 w-4" />
+            </span>
             {label}
           </Link>
         ))}
-      </div>
+      </nav>
     </aside>
   );
 };
