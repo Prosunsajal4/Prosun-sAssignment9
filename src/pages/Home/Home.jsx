@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import Header from "../Shared/Header/Header";
 import LeftSideNav from "../Shared/LeftSideNav/LeftSideNav";
-import Navbar from "../Shared/Navbar/Navbar";
 import RightSideNav from "../Shared/RightSideNav/RightSideNav";
 
 const Home = () => {
@@ -26,7 +25,6 @@ const Home = () => {
   return (
     <div>
       <Header />
-      <Navbar />
       <main id="main-content" role="main" className="mt-8">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-[250px_minmax(0,1fr)_320px] lg:items-start">
           <aside className="lg:sticky lg:top-24">
@@ -199,33 +197,6 @@ const Home = () => {
               </div>
             </section>
 
-            <footer className="rounded-3xl bg-slate-950 px-6 py-8 text-white shadow-sm sm:px-8 reveal-on-scroll">
-              <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-                <div>
-                  <h3 className="text-lg font-semibold">Esho Shikhi</h3>
-                  <p className="mt-2 text-sm text-slate-300">
-                    Learn something new every day with curated lessons and
-                    trusted instructors.
-                  </p>
-                </div>
-                <div>
-                  <h4 className="font-semibold">Navigation</h4>
-                  <ul className="mt-3 space-y-2 text-sm text-slate-300">
-                    <li>Home</li>
-                    <li>About</li>
-                    <li>Courses</li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="font-semibold">Follow</h4>
-                  <div className="mt-3 flex flex-wrap gap-2 text-sm text-slate-300">
-                    <span>Facebook</span>
-                    <span>Twitter</span>
-                    <span>Instagram</span>
-                  </div>
-                </div>
-              </div>
-            </footer>
           </div>
 
           <aside className="lg:sticky lg:top-24">
