@@ -39,10 +39,10 @@ const RightSideNav = () => {
   }, []);
 
   return (
-    <aside className="space-y-6 rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-100">
+    <aside className="space-y-6 rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-100 dark:bg-slate-900 dark:ring-slate-800">
       {/* Social */}
       <div>
-        <h2 className="text-base font-semibold text-slate-900">Follow Us</h2>
+        <h2 className="text-base font-semibold text-slate-900 dark:text-white">Follow Us</h2>
         <div className="mt-3 flex gap-2">
           {[
             { icon: FaFacebook, label: "Facebook", href: "https://facebook.com", color: "hover:bg-blue-50 hover:text-blue-600" },
@@ -54,7 +54,7 @@ const RightSideNav = () => {
               href={href}
               target="_blank"
               rel="noreferrer"
-              className={`flex h-10 w-10 items-center justify-center rounded-xl bg-slate-50 text-slate-500 transition ${color}`}
+              className={`flex h-10 w-10 items-center justify-center rounded-xl bg-slate-50 text-slate-500 transition dark:bg-slate-800 dark:text-slate-400 ${color}`}
               aria-label={label}
             >
               <Icon className="h-4 w-4" />
@@ -64,8 +64,8 @@ const RightSideNav = () => {
       </div>
 
       {/* Spotlight */}
-      <div className="rounded-2xl bg-slate-50 p-4">
-        <h2 className="text-base font-semibold text-slate-900">Spotlight</h2>
+      <div className="rounded-2xl bg-slate-50 p-4 dark:bg-slate-800">
+        <h2 className="text-base font-semibold text-slate-900 dark:text-white">Spotlight</h2>
         <div className="mt-3">
           <div className="relative overflow-hidden rounded-xl bg-white p-3 shadow-sm">
             <button
