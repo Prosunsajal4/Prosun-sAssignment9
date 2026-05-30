@@ -85,7 +85,7 @@ const Home = () => {
                 ].map((item) => (
                   <Link
                     key={item.name}
-                    to={`/news/${encodeURIComponent(item.course)}`}
+                    to={`/skill/${encodeURIComponent(item.course)}`}
                     className="instructor-card overflow-hidden p-0 text-left block"
                   >
                     <div className="relative h-44 bg-slate-100">

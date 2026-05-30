@@ -3,7 +3,7 @@ import Root from "../layouts/Root";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
-import News from "../pages/News/News";
+import Skill from "../pages/Skill/Skill";
 import About from "../pages/About/About";
 import Career from "../pages/Career/Career";
 import Addict from "../pages/Addict/Addict";
@@ -17,16 +17,16 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        loader: () => fetch("/news.json"),
+        loader: () => fetch("/skills.json"),
       },
       {
-        path: "/news/:id",
+        path: "/skill/:id",
         element: (
           <PrivateRoute>
-            <News />
+            <Skill />
           </PrivateRoute>
         ),
-        loader: () => fetch("/news.json"),
+        loader: () => fetch("/skills.json"),
       },
       {
         path: "/login",
