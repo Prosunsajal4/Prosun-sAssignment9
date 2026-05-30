@@ -66,14 +66,14 @@ const About = () => {
   return (
     <main id="main-content" className="mx-auto max-w-4xl py-8 space-y-8">
       {/* Hero */}
-      <div className="rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-100">
+      <div className="rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-100 dark:bg-slate-900 dark:ring-slate-800">
         <p className="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-600">
           About
         </p>
-        <h1 className="mt-2 text-3xl font-bold text-slate-900">
+        <h1 className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">
           Built for practical learning
         </h1>
-        <p className="mt-4 text-base leading-7 text-slate-600">
+        <p className="mt-4 text-base leading-7 text-slate-600 dark:text-slate-400">
           Esho Shikhi is a learning platform focused on live, project-driven
           lessons. We connect students with trusted instructors and provide a
           clean path from browsing to enrollment.
@@ -83,15 +83,15 @@ const About = () => {
           {values.map(({ icon: Icon, title, description }) => (
             <div
               key={title}
-              className="rounded-2xl border border-slate-100 bg-slate-50 p-6 transition-all hover:bg-white hover:shadow-md"
+              className="rounded-2xl border border-slate-100 bg-slate-50 p-6 transition-all hover:bg-white hover:shadow-md dark:border-slate-700 dark:bg-slate-800 dark:hover:bg-slate-700"
             >
               <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-100 text-indigo-600">
                 <Icon className="h-5 w-5" />
               </div>
-              <h3 className="text-base font-semibold text-slate-900">
+              <h3 className="text-base font-semibold text-slate-900 dark:text-white">
                 {title}
               </h3>
-              <p className="mt-2 text-sm leading-6 text-slate-500">
+              <p className="mt-2 text-sm leading-6 text-slate-500 dark:text-slate-400">
                 {description}
               </p>
             </div>
@@ -100,11 +100,11 @@ const About = () => {
       </div>
 
       {/* Timeline */}
-      <div className="rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-100">
+      <div className="rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-100 dark:bg-slate-900 dark:ring-slate-800">
         <p className="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-600">
           Our Journey
         </p>
-        <h2 className="mt-2 text-2xl font-bold text-slate-900">
+        <h2 className="mt-2 text-2xl font-bold text-slate-900 dark:text-white">
           Milestones
         </h2>
         <div className="mt-8 space-y-6">
@@ -128,12 +128,12 @@ const About = () => {
       </div>
 
       {/* Team */}
-      <div className="rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-100">
+      <div className="rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-100 dark:bg-slate-900 dark:ring-slate-800">
         <div className="text-center">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-600">
             Team
           </p>
-          <h2 className="mt-2 text-2xl font-bold text-slate-900">
+          <h2 className="mt-2 text-2xl font-bold text-slate-900 dark:text-white">
             Meet the people behind Esho Shikhi
           </h2>
         </div>
@@ -141,14 +141,14 @@ const About = () => {
           {team.map(({ name, role, avatar, bio }) => (
             <div
               key={name}
-              className="rounded-2xl border border-slate-100 bg-slate-50 p-6 text-center transition-all hover:bg-white hover:shadow-md"
+              className="rounded-2xl border border-slate-100 bg-slate-50 p-6 text-center transition-all hover:bg-white hover:shadow-md dark:border-slate-700 dark:bg-slate-800 dark:hover:bg-slate-700"
             >
               <img
                 className="mx-auto h-20 w-20 rounded-full object-cover ring-4 ring-white shadow-md"
                 src={avatar}
                 alt={name}
               />
-              <h3 className="mt-4 text-base font-semibold text-slate-900">
+              <h3 className="mt-4 text-base font-semibold text-slate-900 dark:text-white">
                 {name}
               </h3>
               <p className="mt-1 text-xs font-medium text-indigo-600">
