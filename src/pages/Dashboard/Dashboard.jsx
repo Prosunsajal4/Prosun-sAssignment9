@@ -63,20 +63,20 @@ const Dashboard = () => {
         </div>
 
         {/* Stats */}
-        <div className="mt-6 grid grid-cols-3 gap-4 border-t border-slate-100 pt-6">
-          <div className="text-center">
+        <div className="mt-6 grid grid-cols-3 gap-4 border-t border-slate-100 pt-6 dark:border-slate-800">
+          <div className="rounded-2xl bg-indigo-50 p-4 text-center dark:bg-indigo-900/20">
             <p className="text-2xl font-bold text-indigo-600">
               {enrolled.length}
             </p>
-            <p className="text-xs text-slate-500 mt-1">Enrolled</p>
+            <p className="text-xs text-slate-500 mt-1 dark:text-slate-400">Enrolled</p>
           </div>
-          <div className="text-center">
+          <div className="rounded-2xl bg-pink-50 p-4 text-center dark:bg-pink-900/20">
             <p className="text-2xl font-bold text-pink-500">
               {bookmarks.length}
             </p>
-            <p className="text-xs text-slate-500 mt-1">Saved</p>
+            <p className="text-xs text-slate-500 mt-1 dark:text-slate-400">Saved</p>
           </div>
-          <div className="text-center">
+          <div className="rounded-2xl bg-amber-50 p-4 text-center dark:bg-amber-900/20">
             <p className="text-2xl font-bold text-amber-500">
               {enrolled.length > 0
                 ? Math.round(
@@ -86,7 +86,7 @@ const Dashboard = () => {
                 : 0}
               %
             </p>
-            <p className="text-xs text-slate-500 mt-1">Avg Progress</p>
+            <p className="text-xs text-slate-500 mt-1 dark:text-slate-400">Avg Progress</p>
           </div>
         </div>
       </div>
