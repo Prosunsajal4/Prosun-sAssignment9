@@ -39,13 +39,13 @@ const Home = () => {
 
           <div className="space-y-10">
             {/* Featured Skills */}
-            <section className="rounded-3xl bg-white p-6 shadow-sm sm:p-8 reveal-on-scroll">
+            <section className="rounded-3xl bg-white p-6 shadow-sm sm:p-8 reveal-on-scroll dark:bg-slate-900 dark:ring-slate-800">
               <div className="mb-6 flex items-end justify-between gap-4">
                 <div>
                   <p className="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-600">
                     Featured
                   </p>
-                  <h2 className="mt-2 text-2xl font-bold text-slate-900">
+                  <h2 className="mt-2 text-2xl font-bold text-slate-900 dark:text-white">
                     Top Skills This Week
                   </h2>
                 </div>
@@ -93,12 +93,12 @@ const Home = () => {
             </section>
 
             {/* How it works */}
-            <section className="rounded-3xl bg-white p-6 shadow-sm sm:p-8 reveal-on-scroll">
+            <section className="rounded-3xl bg-white p-6 shadow-sm sm:p-8 reveal-on-scroll dark:bg-slate-900 dark:ring-slate-800">
               <div className="mb-6 text-center">
                 <p className="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-600">
                   How it works
                 </p>
-                <h2 className="mt-2 text-2xl font-bold text-slate-900">
+                <h2 className="mt-2 text-2xl font-bold text-slate-900 dark:text-white">
                   Learn in four simple steps
                 </h2>
               </div>
@@ -123,15 +123,15 @@ const Home = () => {
                 ].map(([title, description], index) => (
                   <div
                     key={title}
-                    className="group rounded-2xl border border-slate-100 bg-slate-50 p-5 transition-all hover:bg-white hover:shadow-md hover:border-indigo-100"
+                    className="group rounded-2xl border border-slate-100 bg-slate-50 p-5 transition-all hover:bg-white hover:shadow-md hover:border-indigo-100 dark:border-slate-700 dark:bg-slate-800 dark:hover:bg-slate-700"
                   >
                     <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-600 to-pink-500 text-sm font-bold text-white shadow-md group-hover:scale-110 transition-transform">
                       {index + 1}
                     </div>
-                    <h4 className="text-base font-semibold text-slate-900">
+                    <h4 className="text-base font-semibold text-slate-900 dark:text-white">
                       {title}
                     </h4>
-                    <p className="mt-2 text-sm leading-6 text-slate-500">
+                    <p className="mt-2 text-sm leading-6 text-slate-500 dark:text-slate-400">
                       {description}
                     </p>
                   </div>
@@ -140,12 +140,12 @@ const Home = () => {
             </section>
 
             {/* Testimonials */}
-            <section className="rounded-3xl bg-white p-6 shadow-sm sm:p-8 reveal-on-scroll">
+            <section className="rounded-3xl bg-white p-6 shadow-sm sm:p-8 reveal-on-scroll dark:bg-slate-900 dark:ring-slate-800">
               <div className="mb-6 text-center">
                 <p className="text-sm font-semibold uppercase tracking-[0.2em] text-indigo-600">
                   Testimonials
                 </p>
-                <h2 className="mt-2 text-2xl font-bold text-slate-900">
+                <h2 className="mt-2 text-2xl font-bold text-slate-900 dark:text-white">
                   What our students say
                 </h2>
               </div>
@@ -175,7 +175,7 @@ const Home = () => {
                 ].map((person) => (
                   <article
                     key={person.name}
-                    className="rounded-2xl border border-slate-100 bg-slate-50 p-6 transition-all hover:bg-white hover:shadow-md"
+                    className="rounded-2xl border border-slate-100 bg-slate-50 p-6 transition-all hover:bg-white hover:shadow-md dark:border-slate-700 dark:bg-slate-800 dark:hover:bg-slate-700"
                   >
                     <div className="flex items-center gap-1 mb-3">
                       {Array.from({ length: person.rating }).map((_, i) => (
