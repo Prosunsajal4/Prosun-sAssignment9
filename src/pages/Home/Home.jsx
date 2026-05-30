@@ -51,51 +51,53 @@ const Home = () => {
                 {[
                   {
                     name: "Alex Martin",
-                    role: "Beginner Guitar Lessons",
-                    avatar:
+                    course: "Beginner Guitar Lessons",
+                    image:
                       "https://images.pexels.com/photos/164821/pexels-photo-164821.jpeg",
                     rating: 4.8,
                     slots: 3,
                   },
                   {
                     name: "John Ray",
-                    role: "Basic Photography Workshop",
-                    avatar:
+                    course: "Basic Photography Workshop",
+                    image:
                       "https://images.pexels.com/photos/3184323/pexels-photo-3184323.jpeg",
                     rating: 4.7,
                     slots: 4,
                   },
                   {
                     name: "Omar Hossain",
-                    role: "Creative Writing Workshop",
-                    avatar:
+                    course: "Creative Writing Workshop",
+                    image:
                       "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg",
                     rating: 4.9,
                     slots: 4,
                   },
-                ].map((ins) => (
+                ].map((item) => (
                   <article
-                    key={ins.name}
+                    key={item.name}
                     className="instructor-card overflow-hidden p-0 text-left"
                   >
                     <div className="h-40 bg-slate-100">
                       <img
                         className="h-full w-full object-cover"
-                        src={ins.avatar}
-                        alt={ins.name}
+                        src={item.image}
+                        alt={item.course}
                       />
                     </div>
                     <div className="p-5">
-                      <h3 className="text-lg font-semibold text-slate-900">
-                          {ins.name}
-                        </h3>
-                        <p className="mt-1 text-sm text-slate-500">{ins.role}</p>
+                      <h3 className="text-base font-semibold text-slate-900">
+                        {item.course}
+                      </h3>
+                      <p className="mt-1 text-sm text-slate-500">
+                        by {item.name}
+                      </p>
                       <div className="mt-4 flex items-center justify-between rounded-2xl bg-slate-50 px-4 py-3 text-sm">
                         <span className="font-semibold text-amber-500">
-                          {ins.rating} ★
+                          {item.rating} ★
                         </span>
                         <span className="text-slate-500">
-                          {ins.slots} slots
+                          {item.slots} slots left
                         </span>
                       </div>
                     </div>
