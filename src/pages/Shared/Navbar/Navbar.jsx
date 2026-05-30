@@ -2,7 +2,7 @@ import { Link, NavLink } from "react-router-dom";
 import userDefaultPic from "../../../assets/user.png";
 import { useContext } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
-import { FaGraduationCap } from "react-icons/fa";
+import { FaGraduationCap, FaTachometerAlt } from "react-icons/fa";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -125,6 +125,23 @@ const Navbar = () => {
               aria-label="Mobile navigation"
             >
               {navLinks}
+              {user && (
+                <li>
+                  <NavLink
+                    to="/dashboard"
+                    className={({ isActive }) =>
+                      `rounded-xl px-4 py-2 text-sm font-medium transition-all ${
+                        isActive
+                          ? "bg-indigo-50 text-indigo-700"
+                          : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
+                      }`
+                    }
+                  >
+                    <FaTachometerAlt className="h-4 w-4" />
+                    Dashboard
+                  </NavLink>
+                </li>
+              )}
             </ul>
           </div>
         </div>
@@ -133,14 +150,29 @@ const Navbar = () => {
         <div className="flex items-center gap-3">
           {user ? (
             <>
+              <NavLink
+                to="/dashboard"
+                className={({ isActive }) =>
+                  `hidden sm:flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-medium transition-all ${
+                    isActive
+                      ? "bg-indigo-50 text-indigo-700"
+                      : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
+                  }`
+                }
+              >
+                <FaTachometerAlt className="h-4 w-4" />
+                Dashboard
+              </NavLink>
               <div className="relative">
-                <div className="h-9 w-9 rounded-full ring-2 ring-indigo-200 overflow-hidden shadow-sm">
-                  <img
-                    src={user?.photoURL || userDefaultPic}
-                    alt="User avatar"
-                    className="h-full w-full object-cover"
-                  />
-                </div>
+                <Link to="/dashboard">
+                  <div className="h-9 w-9 rounded-full ring-2 ring-indigo-200 overflow-hidden shadow-sm cursor-pointer">
+                    <img
+                      src={user?.photoURL || userDefaultPic}
+                      alt="User avatar"
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                </Link>
                 <span className="absolute -bottom-0.5 -right-0.5 h-3 w-3 rounded-full border-2 border-white bg-green-400" />
               </div>
               <button

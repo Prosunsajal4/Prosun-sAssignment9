@@ -4,6 +4,7 @@ import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import Skill from "../pages/Skill/Skill";
+import Dashboard from "../pages/Dashboard/Dashboard";
 import About from "../pages/About/About";
 import Career from "../pages/Career/Career";
 import Addict from "../pages/Addict/Addict";
@@ -27,6 +28,14 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: () => fetch("/skills.json"),
+      },
+      {
+        path: "/dashboard",
+        element: (
+          <PrivateRoute>
+            <Dashboard />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/login",
