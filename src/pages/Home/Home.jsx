@@ -1,11 +1,13 @@
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import Header from "../Shared/Header/Header";
 import LeftSideNav from "../Shared/LeftSideNav/LeftSideNav";
 import RightSideNav from "../Shared/RightSideNav/RightSideNav";
 import { FaStar, FaArrowRight, FaPaperPlane } from "react-icons/fa";
 
 const Home = () => {
+  const skills = useLoaderData();
+
   useEffect(() => {
     const els = document.querySelectorAll(".reveal-on-scroll");
     if (!els.length) return;
@@ -24,6 +26,8 @@ const Home = () => {
     return () => io.disconnect();
   }, []);
 
+  const featured = skills.slice(0, 3);
+
   return (
     <div>
       <Header />
@@ -34,7 +38,7 @@ const Home = () => {
           </aside>
 
           <div className="space-y-10">
-            {/* Featured Courses */}
+            {/* Featured Skills */}
             <section className="rounded-3xl bg-white p-6 shadow-sm sm:p-8 reveal-on-scroll">
               <div className="mb-6 flex items-end justify-between gap-4">
                 <div>
@@ -42,78 +46,44 @@ const Home = () => {
                     Featured
                   </p>
                   <h2 className="mt-2 text-2xl font-bold text-slate-900">
-                    Top Courses This Week
+                    Top Skills This Week
                   </h2>
                 </div>
-                <Link
-                  to="/"
-                  className="hidden items-center gap-1.5 text-sm font-medium text-indigo-600 transition hover:text-indigo-700 sm:inline-flex"
-                >
-                  View all <FaArrowRight className="h-3 w-3" />
-                </Link>
+                <span className="hidden rounded-full bg-indigo-50 px-3 py-1 text-sm font-medium text-indigo-700 sm:inline-flex">
+                  {featured.length} curated picks
+                </span>
               </div>
 
               <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
-                {[
-                  {
-                    name: "Alex Martin",
-                    course: "Beginner Guitar Lessons",
-                    image:
-                      "https://images.pexels.com/photos/164821/pexels-photo-164821.jpeg",
-                    rating: 4.8,
-                    slots: 3,
-                    price: "$20",
-                  },
-                  {
-                    name: "John Ray",
-                    course: "Basic Photography Workshop",
-                    image:
-                      "https://images.pexels.com/photos/3184323/pexels-photo-3184323.jpeg",
-                    rating: 4.7,
-                    slots: 4,
-                    price: "$15",
-                  },
-                  {
-                    name: "Omar Hossain",
-                    course: "Creative Writing Workshop",
-                    image:
-                      "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg",
-                    rating: 4.9,
-                    slots: 4,
-                    price: "$11",
-                  },
-                ].map((item) => (
+                {featured.map((skill) => (
                   <Link
-                    key={item.name}
-                    to={`/skill/${encodeURIComponent(item.course)}`}
+                    key={skill._id}
+                    to={`/skill/${encodeURIComponent(skill.title)}`}
                     className="instructor-card overflow-hidden p-0 text-left block"
                   >
                     <div className="relative h-44 bg-slate-100">
                       <img
                         className="h-full w-full object-cover"
-                        src={item.image}
-                        alt={item.course}
+                        src={skill.image_url}
+                        alt={skill.title}
                       />
-                      <span className="absolute top-3 right-3 rounded-lg bg-white/90 px-2.5 py-1 text-xs font-bold text-indigo-700 backdrop-blur-sm">
-                        {item.price}
+                      <span className="absolute top-3 right-3 rounded-lg bg-white/90 px-2.5 py-1 text-xs font-bold text-indigo-700 backdrop-blur-sm shadow-sm">
+                        {skill.price}
                       </span>
                     </div>
                     <div className="p-5">
                       <h3 className="text-base font-semibold text-slate-900 leading-snug">
-                        {item.course}
+                        {skill.title}
                       </h3>
-                      <p className="mt-1.5 text-sm text-slate-500">
-                        by {item.name}
-                      </p>
-                      <div className="mt-4 flex items-center justify-between">
+                      <div className="mt-3 flex items-center justify-between">
                         <div className="flex items-center gap-1.5">
                           <FaStar className="h-3.5 w-3.5 text-amber-400" />
                           <span className="text-sm font-semibold text-slate-700">
-                            {item.rating}
+                            {skill.rating.number}
                           </span>
                         </div>
-                        <span className="text-xs font-medium text-slate-500 bg-slate-50 px-2.5 py-1 rounded-full">
-                          {item.slots} slots left
+                        <span className="text-xs font-medium text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-full">
+                          {skill.category_id}
                         </span>
                       </div>
                     </div>
