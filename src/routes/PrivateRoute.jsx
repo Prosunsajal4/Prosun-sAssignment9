@@ -6,9 +6,9 @@ const LoadingSkeleton = () => (
   <div className="flex min-h-[60vh] items-center justify-center">
     <div className="flex flex-col items-center gap-4">
       <div className="relative">
-        <div className="h-14 w-14 rounded-full border-4 border-indigo-100 border-t-indigo-600 animate-spin" />
+        <div className="h-14 w-14 rounded-full border-4 border-indigo-100 border-t-indigo-600 animate-spin dark:border-indigo-800 dark:border-t-indigo-400" />
       </div>
-      <p className="text-sm font-medium text-slate-500 animate-pulse">
+      <p className="text-sm font-medium text-slate-500 dark:text-slate-400 animate-pulse">
         Loading...
       </p>
     </div>
