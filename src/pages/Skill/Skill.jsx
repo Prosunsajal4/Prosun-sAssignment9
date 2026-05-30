@@ -26,9 +26,9 @@ const Skill = () => {
   if (!skills || skills.length === 0) {
     return (
       <main id="main-content" className="py-8">
-        <div className="rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-100 text-center">
-          <div className="inline-block h-8 w-8 animate-spin rounded-full border-4 border-indigo-200 border-t-indigo-600" />
-          <p className="mt-4 text-sm text-slate-500">Loading skill data...</p>
+        <div className="rounded-3xl bg-white p-8 shadow-sm ring-1 ring-slate-100 dark:bg-slate-900 dark:ring-slate-800 text-center">
+          <div className="inline-block h-10 w-10 animate-spin rounded-full border-4 border-indigo-200 border-t-indigo-600" />
+          <p className="mt-4 text-sm text-slate-500 dark:text-slate-400">Loading skill data...</p>
         </div>
       </main>
     );
