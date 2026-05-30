@@ -34,7 +34,7 @@ const Dashboard = () => {
   return (
     <main id="main-content" className="mx-auto max-w-5xl py-8">
       {/* Profile header */}
-      <div className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-100 sm:p-8">
+      <div className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-100 sm:p-8 dark:bg-slate-900 dark:ring-slate-800">
         <div className="flex flex-col sm:flex-row items-center gap-6">
           <div className="relative">
             <img
@@ -45,10 +45,10 @@ const Dashboard = () => {
             <span className="absolute bottom-0 right-0 h-5 w-5 rounded-full border-2 border-white bg-green-400" />
           </div>
           <div className="text-center sm:text-left flex-1">
-            <h1 className="text-xl font-bold text-slate-900">
+            <h1 className="text-xl font-bold text-slate-900 dark:text-white">
               {user?.displayName || "Student"}
             </h1>
-            <p className="mt-1 flex items-center justify-center sm:justify-start gap-1 text-sm text-slate-500">
+            <p className="mt-1 flex items-center justify-center sm:justify-start gap-1 text-sm text-slate-500 dark:text-slate-400">
               <FaEnvelope className="h-3.5 w-3.5" />
               {user?.email || "No email"}
             </p>
@@ -100,7 +100,7 @@ const Dashboard = () => {
             className={`flex items-center gap-2 whitespace-nowrap rounded-xl px-4 py-2.5 text-sm font-medium transition ${
               activeTab === id
                 ? "bg-indigo-600 text-white shadow-md"
-                : "bg-white text-slate-600 hover:bg-slate-50 ring-1 ring-slate-100"
+                : "bg-white text-slate-600 hover:bg-slate-50 ring-1 ring-slate-100 dark:bg-slate-800 dark:text-slate-400 dark:hover:bg-slate-700 dark:ring-slate-700"
             }`}
           >
             <Icon className="h-4 w-4" />
@@ -124,8 +124,8 @@ const Dashboard = () => {
       <div className="mt-6">
         {/* Enrolled Courses */}
         {activeTab === "enrolled" && (
-          <div className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-100 sm:p-8">
-            <h2 className="text-lg font-bold text-slate-900">My Courses</h2>
+          <div className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-slate-100 sm:p-8 dark:bg-slate-900 dark:ring-slate-800">
+            <h2 className="text-lg font-bold text-slate-900 dark:text-white">My Courses</h2>
             {enrolled.length === 0 ? (
               <div className="mt-8 text-center py-12">
                 <FaBookOpen className="mx-auto h-12 w-12 text-slate-300" />
