@@ -1,81 +1,140 @@
-import { FaFacebook, FaTwitter, FaInstagram, FaGithub } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import {
+  FaFacebook,
+  FaTwitter,
+  FaInstagram,
+  FaGithub,
+  FaArrowUp,
+} from "react-icons/fa";
 
 const Footer = () => {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
     <footer className="bg-slate-950 text-white">
       <div className="container-max mx-auto px-4 py-12 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-          <div>
-            <h3 className="text-lg font-semibold">Esho Shikhi</h3>
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
+          {/* Brand */}
+          <div className="md:col-span-1">
+            <h3 className="text-lg font-bold">Esho Shikhi</h3>
             <p className="mt-3 text-sm leading-6 text-slate-400">
               Learn something new every day with curated lessons and trusted
               instructors.
             </p>
+            <div className="mt-4 flex gap-3">
+              {[
+                { icon: FaFacebook, label: "Facebook", href: "https://facebook.com" },
+                { icon: FaTwitter, label: "Twitter", href: "https://twitter.com" },
+                { icon: FaInstagram, label: "Instagram", href: "https://instagram.com" },
+                { icon: FaGithub, label: "GitHub", href: "https://github.com" },
+              ].map(({ icon: Icon, label, href }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-800 text-slate-400 transition hover:bg-slate-700 hover:text-white"
+                  aria-label={label}
+                >
+                  <Icon size={16} />
+                </a>
+              ))}
+            </div>
           </div>
+
+          {/* Quick Links */}
           <div>
-            <h4 className="font-semibold">Quick Links</h4>
-            <ul className="mt-3 space-y-2 text-sm text-slate-400">
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-slate-300">
+              Platform
+            </h4>
+            <ul className="mt-4 space-y-2.5 text-sm text-slate-400">
               <li>
-                <a href="/" className="transition hover:text-white">
+                <Link to="/" className="transition hover:text-white">
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/about" className="transition hover:text-white">
+                <Link to="/about" className="transition hover:text-white">
                   About
+                </Link>
+              </li>
+              <li>
+                <Link to="/career" className="transition hover:text-white">
+                  Career Paths
+                </Link>
+              </li>
+              <li>
+                <Link to="/addict" className="transition hover:text-white">
+                  Favorites
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Support */}
+          <div>
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-slate-300">
+              Support
+            </h4>
+            <ul className="mt-4 space-y-2.5 text-sm text-slate-400">
+              <li>
+                <a href="#" className="transition hover:text-white">
+                  Help Center
                 </a>
               </li>
               <li>
-                <a href="/career" className="transition hover:text-white">
-                  Career
+                <a href="#" className="transition hover:text-white">
+                  Contact Us
+                </a>
+              </li>
+              <li>
+                <a href="#" className="transition hover:text-white">
+                  Privacy Policy
+                </a>
+              </li>
+              <li>
+                <a href="#" className="transition hover:text-white">
+                  Terms of Service
                 </a>
               </li>
             </ul>
           </div>
+
+          {/* Newsletter */}
           <div>
-            <h4 className="font-semibold">Follow Us</h4>
-            <div className="mt-3 flex gap-4">
-              <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noreferrer"
-                className="text-slate-400 transition hover:text-white"
-                aria-label="Facebook"
-              >
-                <FaFacebook size={20} />
-              </a>
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noreferrer"
-                className="text-slate-400 transition hover:text-white"
-                aria-label="Twitter"
-              >
-                <FaTwitter size={20} />
-              </a>
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noreferrer"
-                className="text-slate-400 transition hover:text-white"
-                aria-label="Instagram"
-              >
-                <FaInstagram size={20} />
-              </a>
-              <a
-                href="https://github.com"
-                target="_blank"
-                rel="noreferrer"
-                className="text-slate-400 transition hover:text-white"
-                aria-label="GitHub"
-              >
-                <FaGithub size={20} />
-              </a>
+            <h4 className="text-sm font-semibold uppercase tracking-wider text-slate-300">
+              Newsletter
+            </h4>
+            <p className="mt-4 text-sm text-slate-400">
+              Weekly tips and new course alerts.
+            </p>
+            <div className="mt-3 flex gap-2">
+              <input
+                type="email"
+                placeholder="you@email.com"
+                className="flex-1 rounded-lg border border-slate-700 bg-slate-800/50 px-3 py-2 text-sm text-white placeholder-slate-500 focus:border-indigo-500 focus:outline-none focus:ring-1 focus:ring-indigo-500"
+              />
+              <button className="shrink-0 rounded-lg bg-indigo-600 px-3 py-2 text-sm font-medium text-white transition hover:bg-indigo-500">
+                Join
+              </button>
             </div>
           </div>
         </div>
-        <div className="mt-8 border-t border-slate-800 pt-6 text-center text-sm text-slate-500">
-          &copy; {new Date().getFullYear()} Esho Shikhi. All rights reserved.
+
+        {/* Bottom bar */}
+        <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-slate-800 pt-6 sm:flex-row">
+          <p className="text-xs text-slate-500">
+            &copy; {new Date().getFullYear()} Esho Shikhi. All rights reserved.
+          </p>
+          <button
+            onClick={scrollToTop}
+            className="flex h-9 w-9 items-center justify-center rounded-full bg-slate-800 text-slate-400 transition hover:bg-indigo-600 hover:text-white"
+            aria-label="Back to top"
+          >
+            <FaArrowUp className="h-4 w-4" />
+          </button>
         </div>
       </div>
     </footer>
