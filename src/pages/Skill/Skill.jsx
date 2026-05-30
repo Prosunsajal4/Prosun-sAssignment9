@@ -1,10 +1,24 @@
-import { useLoaderData, useParams, Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { useLoaderData, useParams, Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProvider";
 import RightSideNav from "../Shared/RightSideNav/RightSideNav";
-import { FaStar, FaArrowLeft, FaShareAlt, FaHeart, FaClock, FaUsers } from "react-icons/fa";
+import {
+  FaStar,
+  FaArrowLeft,
+  FaShareAlt,
+  FaHeart,
+  FaClock,
+  FaUsers,
+  FaCheckCircle,
+} from "react-icons/fa";
 
 const Skill = () => {
   const { id } = useParams();
   const skills = useLoaderData();
+  const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const [enrolled, setEnrolled] = useState(false);
+  const [saved, setSaved] = useState(false);
 
   if (!skills || skills.length === 0) {
     return (
@@ -22,6 +36,14 @@ const Skill = () => {
   ) || skills[0];
 
   const related = skills.filter((s) => s._id !== skill._id).slice(0, 3);
+
+  const handleEnroll = () => {
+    if (!user) {
+      navigate("/login", { state: `/skill/${encodeURIComponent(skill.title)}` });
+      return;
+    }
+    setEnrolled(true);
+  };
 
   return (
     <main id="main-content" className="py-8">
@@ -78,13 +100,48 @@ const Skill = () => {
                 {skill.details}
               </p>
 
+              {/* Enroll success message */}
+              {enrolled && (
+                <div className="mt-4 flex items-center gap-2 rounded-xl bg-green-50 border border-green-200 px-4 py-3 text-sm text-green-700">
+                  <FaCheckCircle className="h-5 w-5 text-green-500" />
+                  <span>
+                    <strong>Enrolled successfully!</strong> You now have access
+                    to this skill.
+                  </span>
+                </div>
+              )}
+
               <div className="mt-6 flex flex-wrap gap-3">
-                <button className="rounded-xl bg-indigo-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-indigo-700 shadow-md hover:shadow-lg">
-                  Enroll Now
+                <button
+                  onClick={handleEnroll}
+                  disabled={enrolled}
+                  className={`rounded-xl px-6 py-3 text-sm font-semibold transition shadow-md ${
+                    enrolled
+                      ? "bg-green-500 text-white cursor-default"
+                      : "bg-indigo-600 text-white hover:bg-indigo-700 hover:shadow-lg"
+                  }`}
+                >
+                  {enrolled ? (
+                    <span className="flex items-center gap-2">
+                      <FaCheckCircle className="h-4 w-4" />
+                      Enrolled
+                    </span>
+                  ) : (
+                    "Enroll Now"
+                  )}
                 </button>
-                <button className="flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-700 transition hover:bg-slate-50 hover:border-slate-300">
-                  <FaHeart className="h-4 w-4" />
-                  Save
+                <button
+                  onClick={() => setSaved(!saved)}
+                  className={`flex items-center gap-2 rounded-xl border px-4 py-3 text-sm font-medium transition ${
+                    saved
+                      ? "border-pink-200 bg-pink-50 text-pink-600"
+                      : "border-slate-200 bg-white text-slate-700 hover:bg-slate-50 hover:border-slate-300"
+                  }`}
+                >
+                  <FaHeart
+                    className={`h-4 w-4 ${saved ? "fill-current" : ""}`}
+                  />
+                  {saved ? "Saved" : "Save"}
                 </button>
                 <button className="flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm font-medium text-slate-700 transition hover:bg-slate-50 hover:border-slate-300">
                   <FaShareAlt className="h-4 w-4" />
