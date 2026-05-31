@@ -6,6 +6,7 @@ import router from './routes/Routes'
 import AuthProvider from './providers/AuthProvider'
 import { DashboardProvider } from './providers/DashboardProvider'
 import { ThemeProvider } from './providers/ThemeProvider'
+import { NotificationProvider } from './providers/NotificationProvider'
 
 const AppLoader = () => (
   <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-indigo-50 to-pink-50 dark:from-slate-900 dark:to-slate-800">
@@ -27,9 +28,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <ThemeProvider>
       <AuthProvider>
         <DashboardProvider>
-          <React.Suspense fallback={<AppLoader />}>
-            <RouterProvider router={router} />
-          </React.Suspense>
+          <NotificationProvider>
+            <React.Suspense fallback={<AppLoader />}>
+              <RouterProvider router={router} />
+            </React.Suspense>
+          </NotificationProvider>
         </DashboardProvider>
       </AuthProvider>
     </ThemeProvider>
