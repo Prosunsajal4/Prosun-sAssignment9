@@ -1,6 +1,19 @@
 import { useState } from "react";
 import { FaStar, FaRegStar, FaStarHalfAlt } from "react-icons/fa";
 
+/**
+ * Rating component - Star rating input for feedback and reviews
+ * @component
+ * @param {Object} props - Component props
+ * @param {number} [props.value=0] - Current rating value
+ * @param {number} [props.maxStars=5] - Maximum number of stars
+ * @param {string} [props.size="md"] - Star size: sm, md, lg, xl
+ * @param {boolean} [props.readonly=false] - Disable rating interaction
+ * @param {Function} [props.onChange] - Callback for rating changes
+ * @param {boolean} [props.showValue=false] - Display numeric rating
+ * @param {string} [props.className=""] - Additional CSS classes
+ * @returns {React.ReactElement} Star rating component
+ */
 const Rating = ({
   value = 0,
   maxStars = 5,
