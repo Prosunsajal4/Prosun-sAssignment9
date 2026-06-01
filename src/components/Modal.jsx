@@ -1,6 +1,17 @@
 import { useEffect, useRef } from "react";
 import { FaTimes } from "react-icons/fa";
 
+/**
+ * Modal component - Accessible dialog overlay for displaying content
+ * @component
+ * @param {Object} props - Component props
+ * @param {boolean} props.isOpen - Control modal visibility
+ * @param {Function} props.onClose - Callback when modal should close
+ * @param {string} [props.title] - Modal title
+ * @param {React.ReactNode} props.children - Modal content
+ * @param {string} [props.size="md"] - Modal size: sm, md, lg, xl
+ * @returns {React.ReactElement|null} Modal dialog or null
+ */
 const Modal = ({ isOpen, onClose, title, children, size = "md" }) => {
   const modalRef = useRef(null);
 
