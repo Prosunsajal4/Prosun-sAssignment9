@@ -1,3 +1,14 @@
+/**
+ * Heading component - Semantic HTML heading with flexible sizing and styling
+ * @component
+ * @param {Object} props - Component props
+ * @param {React.ReactNode} props.children - Heading text content
+ * @param {number} [props.level=2] - HTML heading level (1-6): h1-h6
+ * @param {string} [props.size] - Font size override
+ * @param {boolean} [props.gradient=false] - Apply gradient styling
+ * @param {string} [props.className=""] - Additional CSS classes
+ * @returns {React.ReactElement} Heading element
+ */
 const Heading = ({
   children,
   level = 2,
