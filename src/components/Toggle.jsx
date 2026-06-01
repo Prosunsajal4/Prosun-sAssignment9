@@ -1,5 +1,17 @@
 import { useState } from "react";
 
+/**
+ * Toggle component - Switch component for boolean state
+ * @component
+ * @param {Object} props - Component props
+ * @param {boolean} [props.checked=false] - Toggle state
+ * @param {Function} [props.onChange] - Change handler
+ * @param {string} [props.label] - Display label
+ * @param {boolean} [props.disabled=false] - Disable toggle
+ * @param {string} [props.size="md"] - Toggle size: sm, md, lg
+ * @param {string} [props.className=""] - Additional CSS classes
+ * @returns {React.ReactElement} Toggle switch
+ */
 const Toggle = ({
   checked = false,
   onChange,
