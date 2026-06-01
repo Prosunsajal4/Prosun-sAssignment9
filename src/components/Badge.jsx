@@ -1,3 +1,13 @@
+/**
+ * Badge component - Inline label for categorizing or marking content
+ * @component
+ * @param {Object} props - Component props
+ * @param {React.ReactNode} props.children - Badge content/text
+ * @param {string} [props.variant="default"] - Badge color: default, primary, success, warning, danger, info
+ * @param {string} [props.size="sm"] - Badge size: xs, sm, md
+ * @param {string} [props.className=""] - Additional CSS classes
+ * @returns {React.ReactElement} Badge element
+ */
 const Badge = ({ children, variant = "default", size = "sm", className = "" }) => {
   const variants = {
     default: "bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300",
