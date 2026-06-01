@@ -1,5 +1,15 @@
 import { useState } from "react";
 
+/**
+ * Tooltip component - Informational popup on hover or focus
+ * @component
+ * @param {Object} props - Component props
+ * @param {React.ReactNode} props.children - Trigger element
+ * @param {React.ReactNode} props.content - Tooltip content
+ * @param {string} [props.position="top"] - Tooltip position: top, bottom, left, right
+ * @param {string} [props.className=""] - Additional CSS classes
+ * @returns {React.ReactElement} Tooltip wrapper
+ */
 const Tooltip = ({
   children,
   content,
