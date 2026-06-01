@@ -1,5 +1,17 @@
 import { FaCheck } from "react-icons/fa";
 
+/**
+ * Checkbox component - Accessible checkbox input with optional label
+ * @component
+ * @param {Object} props - Component props
+ * @param {boolean} [props.checked=false] - Checkbox state
+ * @param {Function} [props.onChange] - Change handler
+ * @param {string} [props.label] - Display label
+ * @param {boolean} [props.disabled=false] - Disable checkbox
+ * @param {boolean} [props.indeterminate=false] - Show indeterminate state
+ * @param {string} [props.className=""] - Additional CSS classes
+ * @returns {React.ReactElement} Checkbox input with label
+ */
 const Checkbox = ({
   checked = false,
   onChange,
