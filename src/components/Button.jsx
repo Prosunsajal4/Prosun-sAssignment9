@@ -1,5 +1,19 @@
 import { forwardRef } from "react";
 
+/**
+ * Button component - A flexible, accessible button component
+ * @component
+ * @param {Object} props - Component props
+ * @param {React.ReactNode} props.children - Button text or content
+ * @param {string} [props.variant="primary"] - Button style variant: primary, secondary, danger, ghost
+ * @param {string} [props.size="md"] - Button size: sm, md, lg
+ * @param {boolean} [props.loading=false] - Show loading state
+ * @param {boolean} [props.disabled=false] - Disable button
+ * @param {boolean} [props.fullWidth=false] - Make button full width
+ * @param {React.ComponentType} [props.icon] - Icon component to render
+ * @param {string} [props.iconPosition="left"] - Icon position: left or right
+ * @returns {React.ReactElement} Button element
+ */
 const Button = forwardRef(
   (
     {
