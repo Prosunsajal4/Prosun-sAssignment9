@@ -1,5 +1,17 @@
 import { forwardRef } from "react";
 
+/**
+ * Textarea component - Accessible multiline text input with validation support
+ * @component
+ * @param {Object} props - Component props
+ * @param {string} [props.label] - Textarea label text
+ * @param {number} [props.rows=4] - Number of visible rows
+ * @param {string} [props.error] - Error message to display
+ * @param {string} [props.helperText] - Helper text below textarea
+ * @param {boolean} [props.required] - Mark as required
+ * @param {string} [props.className=""] - Additional CSS classes
+ * @returns {React.ReactElement} Textarea field
+ */
 const Textarea = forwardRef(
   ({
     label,
