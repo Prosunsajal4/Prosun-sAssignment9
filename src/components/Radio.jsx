@@ -1,3 +1,16 @@
+/**
+ * Radio component - Accessible radio button input with optional label
+ * @component
+ * @param {Object} props - Component props
+ * @param {string} props.name - Radio button group name
+ * @param {string|number} props.value - Radio button value
+ * @param {boolean} [props.checked=false] - Radio state
+ * @param {Function} [props.onChange] - Change handler
+ * @param {string} [props.label] - Display label
+ * @param {boolean} [props.disabled=false] - Disable radio
+ * @param {string} [props.className=""] - Additional CSS classes
+ * @returns {React.ReactElement} Radio input with label
+ */
 const Radio = ({
   name,
   value,
