@@ -1,3 +1,15 @@
+/**
+ * Progress component - Visual progress indicator with percentage
+ * @component
+ * @param {Object} props - Component props
+ * @param {number} [props.value=0] - Current progress value
+ * @param {number} [props.max=100] - Maximum progress value
+ * @param {string} [props.size="md"] - Progress bar size: sm, md, lg
+ * @param {boolean} [props.showLabel=false] - Display percentage label
+ * @param {string} [props.variant="default"] - Color variant: default, success, warning, danger
+ * @param {string} [props.className=""] - Additional CSS classes
+ * @returns {React.ReactElement} Progress bar
+ */
 const Progress = ({
   value = 0,
   max = 100,
