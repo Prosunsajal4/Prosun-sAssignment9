@@ -1,6 +1,18 @@
 import { forwardRef } from "react";
 import { FaChevronDown } from "react-icons/fa";
 
+/**
+ * Select component - Accessible dropdown select input
+ * @component
+ * @param {Object} props - Component props
+ * @param {string} [props.label] - Select label text
+ * @param {Array<{value: string, label: string}>} [props.options=[]] - Select options
+ * @param {string} [props.placeholder="Select an option"] - Placeholder text
+ * @param {string} [props.error] - Error message to display
+ * @param {boolean} [props.disabled=false] - Disable select
+ * @param {string} [props.className=""] - Additional CSS classes
+ * @returns {React.ReactElement} Select field
+ */
 const Select = forwardRef(
   ({
     label,
