@@ -1,5 +1,15 @@
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
+/**
+ * Pagination component - Navigation for multi-page content
+ * @component
+ * @param {Object} props - Component props
+ * @param {number} props.currentPage - Current active page
+ * @param {number} props.totalPages - Total number of pages
+ * @param {Function} props.onPageChange - Callback for page changes
+ * @param {string} [props.className=""] - Additional CSS classes
+ * @returns {React.ReactElement} Pagination controls
+ */
 const Pagination = ({
   currentPage,
   totalPages,
