@@ -1,5 +1,16 @@
 import userDefaultPic from "../assets/user.png";
 
+/**
+ * Avatar component - Display user profile picture with optional online indicator
+ * @component
+ * @param {Object} props - Component props
+ * @param {string} [props.src] - Image source URL
+ * @param {string} [props.alt="User avatar"] - Image alt text
+ * @param {string} [props.size="md"] - Avatar size: xs, sm, md, lg, xl
+ * @param {boolean} [props.online=false] - Show online status indicator
+ * @param {string} [props.className=""] - Additional CSS classes
+ * @returns {React.ReactElement} Avatar image
+ */
 const Avatar = ({
   src,
   alt = "User avatar",
