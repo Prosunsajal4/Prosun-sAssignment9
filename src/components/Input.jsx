@@ -1,6 +1,19 @@
 import { forwardRef, useState } from "react";
 import { FaEye, FaEyeSlash, FaExclamationCircle } from "react-icons/fa";
 
+/**
+ * Input component - Accessible text input with optional icon, validation, and password toggle
+ * @component
+ * @param {Object} props - Component props
+ * @param {string} [props.label] - Input label text
+ * @param {string} [props.type="text"] - Input type
+ * @param {string} [props.error] - Error message to display
+ * @param {string} [props.helperText] - Helper text below input
+ * @param {React.ComponentType} [props.icon] - Icon component to display
+ * @param {boolean} [props.required] - Mark as required
+ * @param {string} [props.className=""] - Additional CSS classes
+ * @returns {React.ReactElement} Input field
+ */
 const Input = forwardRef(
   (
     {
