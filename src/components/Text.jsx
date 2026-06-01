@@ -1,3 +1,15 @@
+/**
+ * Text component - Flexible text element with styling options
+ * @component
+ * @param {Object} props - Component props
+ * @param {React.ReactNode} props.children - Text content
+ * @param {string} [props.size="md"] - Font size: xs, sm, md, lg, xl
+ * @param {string} [props.color="default"] - Text color: default, muted, primary, success, danger, white
+ * @param {string} [props.weight="normal"] - Font weight
+ * @param {React.ElementType} [props.as="p"] - HTML element to render as
+ * @param {string} [props.className=""] - Additional CSS classes
+ * @returns {React.ReactElement} Text element
+ */
 const Text = ({
   children,
   size = "md",
