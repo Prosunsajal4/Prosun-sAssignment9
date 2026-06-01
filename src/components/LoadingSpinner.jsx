@@ -1,3 +1,14 @@
+/**
+ * LoadingSpinner component - Animated loading indicator
+ * @component
+ * @param {Object} props - Component props
+ * @param {string} [props.size="md"] - Spinner size: sm, md, lg, xl
+ * @param {string} [props.color="indigo"] - Spinner color: indigo, white, slate
+ * @param {boolean} [props.fullScreen=false] - Display fullscreen overlay
+ * @param {string} [props.label="Loading..."] - Accessibility label
+ * @param {string} [props.className=""] - Additional CSS classes
+ * @returns {React.ReactElement} Loading spinner
+ */
 const LoadingSpinner = ({
   size = "md",
   color = "indigo",
